@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaWeb - Reservation</title>
+    <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/form-style.css">
+    
+</head>
+<body>
+    <header class="navbar">
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservation.html" class="active">Reservation</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="branches.html">Branches</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-buttons" id="auth-container">
+            <!-- Dynamic Auth Button -->
+        </div>
+    </header>
+
+    <main class="page-container" style="padding-top: 2rem;">
+        <div class="form-container large" style="margin-top: 0;">
+            <div class="form-header">
+                <h2 class="page-title" style="margin-bottom: 0.5rem;">Book a Table</h2>
+                <p class="page-subtitle" style="margin-top: 0;">Reserve a spot at one of our AromaWeb locations for a fresh, authentic dining experience.</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="e.g. John Doe" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. (123) 456-7890" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date" class="form-label">Reservation Date</label>
+                        <input type="date" id="date" name="date" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time" class="form-label">Reservation Time</label>
+                        <input type="time" id="time" name="time" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="people" class="form-label">Number of People</label>
+                        <select id="people" name="people" class="form-select" required>
+                            <option value="1">1 Person</option>
+                            <option value="2" selected>2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5">5 People</option>
+                            <option value="6">6 People</option>
+                            <option value="7+">7+ People (Large Group)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="tables" class="form-label">Number of Tables</label>
+                        <select id="tables" name="tables" class="form-select" required>
+                            <option value="1" selected>1 Table</option>
+                            <option value="2">2 Tables</option>
+                            <option value="3">3 Tables</option>
+                            <option value="4+">4+ Tables</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="requests" class="form-label">Special Requests (Optional)</label>
+                    <textarea id="requests" name="requests" class="form-textarea" placeholder="Any dietary restrictions, seating preferences, or special occasions?"></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Confirm Reservation</button>
+            </form>
+        </div>
+    </main>
+    <script src="../script/auth-script.js"></script>
+</body>
+</html>

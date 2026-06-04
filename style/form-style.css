@@ -1,0 +1,133 @@
+/* style/form-style.css */
+/* Used for Login, Register, Reservation */
+
+.form-container {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: left;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.form-container.large {
+    max-width: 700px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-muted);
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-light);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-select {
+    appearance: none;
+    cursor: pointer;
+}
+.form-select option {
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-check-input {
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.form-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.form-link:hover {
+    color: #f44336;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .form-row .form-group {
+        margin-bottom: 1.5rem;
+    }
+}

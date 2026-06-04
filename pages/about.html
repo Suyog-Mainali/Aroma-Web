@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaWeb - About Us</title>
+    <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/form-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="branches.html">Branches</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-buttons" id="auth-container">
+            <!-- Dynamic Auth Button -->
+        </div>
+    </header>
+
+    <main class="page-container" style="padding-top: 2rem;">
+        <div class="form-header" style="max-width: 800px; margin: 0 auto 3rem auto;">
+            <h2 class="page-title" style="margin-bottom: 1rem;">Our Story</h2>
+            <p class="page-subtitle" style="margin-top: 0; line-height: 1.8;">
+                AromaWeb started with a simple vision: to seamlessly connect the vibrant culinary scene of Kathmandu, Nepal with food lovers everywhere. We understand that the bustling streets of Kathmandu hide some of the best culinary treasures, and our goal is to bridge the gap between hungry customers and their favorite local restaurants.
+            </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; text-align: left;">
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem;">Our Mission</h3>
+                <p style="color: var(--text-muted); line-height: 1.7;">
+                    Our mission is to make great food easy and accessible across Kathmandu. By connecting local restaurants with customers, we provide a unified platform for discovering, ordering, and enjoying the diverse flavors our city has to offer.
+                </p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem;">Fresh Ingredients</h3>
+                <p style="color: var(--text-muted); line-height: 1.7;">
+                    We never cut corners when it comes to quality. Every morning, our chefs select the freshest produce and finest ingredients. We do not use artificial preservatives—just honest, good food cooked with passion and care.
+                </p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem; font-size: 1.5rem;">Kathmandu Community First</h3>
+                <p style="color: var(--text-muted); line-height: 1.7;">
+                    We are deeply rooted in Kathmandu, Nepal. Food is what brings our vibrant community together, and we are grateful to empower local restaurants while bringing joy to your family dinners, busy work lunches, and special moments.
+                </p>
+            </div>
+        </div>
+    </main>
+    <script src="../script/auth-script.js"></script>
+</body>
+</html>

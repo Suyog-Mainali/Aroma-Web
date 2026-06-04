@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaWeb - Register</title>
+    <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/form-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="branches.html">Branches</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-buttons" id="auth-container">
+            <!-- Dynamic Auth Button -->
+        </div>
+    </header>
+
+    <main class="page-container" style="min-height: calc(100vh - 88px); display: flex; align-items: center; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="form-container large">
+            <div class="form-header">
+                <h2>Create an Account</h2>
+                <p>Join AromaWeb for fresh, daily home-cooked meals</p>
+            </div>
+            
+            <form action="#" method="POST">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="e.g. John Doe" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. (123) 456-7890" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-input" placeholder="Create a password" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="form-label">Delivery Address (Oshawa region)</label>
+                    <input type="text" id="address" name="address" class="form-input" placeholder="Street Address, Apt/Suite" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="dietary" class="form-label">Dietary Preferences</label>
+                    <select id="dietary" name="dietary" class="form-select">
+                        <option value="none">None</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="gluten-free">Gluten-Free</option>
+                        <option value="halal">Halal</option>
+                    </select>
+                </div>
+                
+                <div class="form-check" style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="terms" class="form-check-input" required>
+                    <label for="terms" style="font-size: 0.9rem;">I agree to the <a href="#" class="form-link">Terms of Service</a> and <a href="#" class="form-link">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">Register Account</button>
+            </form>
+            
+            <div class="form-footer">
+                Already have an account? <a href="login.html" class="form-link">Login here</a>
+            </div>
+        </div>
+    </main>
+    <script src="../script/auth-script.js"></script>
+    <script src="../script/register-script.js"></script>
+</body>
+</html>

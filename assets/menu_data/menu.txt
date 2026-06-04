@@ -1,0 +1,41 @@
+Title: Butter Chicken
+Category: Main Course
+Diet: Non-Vegetarian
+Spice: Medium
+Price: $18.99
+Description: Authentic homestyle butter chicken simmered in a rich tomato gravy.
+
+Title: Paneer Tikka Masala
+Category: Main Course
+Diet: Vegetarian
+Spice: Medium
+Price: $16.99
+Description: Grilled paneer cubes in a flavorful spiced curry.
+
+Title: Samosa (2 pcs)
+Category: Appetizer
+Diet: Vegan
+Spice: Mild
+Price: $5.99
+Description: Crispy pastry filled with spiced potatoes and peas.
+
+Title: Garlic Naan
+Category: Breads
+Diet: Vegetarian
+Spice: Mild
+Price: $3.99
+Description: Soft and fluffy flatbread topped with fresh garlic and cilantro.
+
+Title: Lamb Vindaloo
+Category: Main Course
+Diet: Non-Vegetarian
+Spice: Hot
+Price: $20.99
+Description: Tender lamb slow-cooked in a fiery and tangy Goan sauce.
+
+Title: Mango Lassi
+Category: Beverages
+Diet: Vegetarian
+Spice: Mild
+Price: $4.99
+Description: Refreshing yogurt drink blended with sweet mango pulp.

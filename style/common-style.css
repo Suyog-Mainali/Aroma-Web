@@ -1,0 +1,224 @@
+/* style/common-style.css */
+:root {
+    --bg-dark: #121212;
+    --bg-darker: #0a0a0a;
+    --text-light: #ffffff;
+    --text-muted: #d0d0d0;
+    --primary-color: #ff5722; /* Orange from the mockup */
+    --font-main: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 6%;
+    background-color: rgba(18, 18, 18, 0.85);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav a:hover, nav a.active {
+    color: var(--primary-color);
+}
+
+nav a.active::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin-top: 6px;
+}
+
+.arrow {
+    font-size: 0.75rem;
+    margin-left: 4px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.7rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #f44336;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 87, 34, 0.3);
+}
+
+/* Page Components - used across multiple pages */
+.page-container {
+    padding: 4rem 6%;
+    text-align: center;
+    min-height: calc(100vh - 88px);
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.icon-small {
+    width: 16px;
+    height: 16px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 101;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-light);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .navbar { 
+        padding: 1rem 5%; 
+    }
+
+    body {
+        font-size: 0.95rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-container {
+        padding: 3rem 5%;
+    }
+    
+    nav ul { 
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(18, 18, 18, 0.95);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        z-index: 99;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+    }
+    
+    nav ul.active {
+        right: 0;
+    }
+    
+    .nav-buttons {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .nav-buttons .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+        width: 80%;
+    }
+}

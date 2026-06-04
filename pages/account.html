@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaWeb - My Account</title>
+    <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/account-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="branches.html">Branches</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-buttons" id="auth-container">
+            <!-- Dynamic Auth Button -->
+        </div>
+    </header>
+
+    <main class="page-container" style="padding-top: 2rem;">
+        <div class="account-container">
+            <div class="account-header">
+                <h2>Account Details</h2>
+                <button id="logout-btn" class="btn btn-danger">Log Out</button>
+            </div>
+            
+            <div class="user-info-grid">
+                <div class="info-group">
+                    <div class="info-label">Full Name</div>
+                    <div class="info-value" id="user-fullname">Loading...</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Email Address</div>
+                    <div class="info-value" id="user-email">Loading...</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Phone Number</div>
+                    <div class="info-value" id="user-phone">Loading...</div>
+                </div>
+                
+                <div class="info-group">
+                    <div class="info-label">Dietary Preference</div>
+                    <div class="info-value" id="user-dietary">Loading...</div>
+                </div>
+            </div>
+            
+            <div class="info-group" style="margin-top: 1.5rem;">
+                <div class="info-label">Delivery Address</div>
+                <div class="info-value" id="user-address">Loading...</div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="../script/auth-script.js"></script>
+    <script src="../script/account-script.js"></script>
+</body>
+</html>
