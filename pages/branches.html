@@ -1,12 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AromaWeb - Branches</title>
     <link rel="stylesheet" href="../style/common-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .box {
+
+
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .location-card {
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            width: 300px;
+            padding: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px -3px rgba(249, 255, 255, 0.1), 0 4px 6px -2px rgba(248, 250, 250, 0.05);
+        }
+
+        .card-header {
+            background: #f77103;
+            border: 1px solid #c3f0e1;
+            border-radius: 20px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .pin {
+            font-size: 1.2rem;
+        }
+
+        .area {
+            font-size: 1.2rem;
+            color: #e04545;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+        }
+
+        .details-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #f77103;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 100px 20px 60px;
+            font-size: px;
+        }
+
+        .page-description {
+            text-align: center;
+            font-size: 24px;
+            color: #f3eeee;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 10px;
+        }
+
+        .sectiontitle {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .featuregrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .featurecard :hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px -3px rgba(249, 255, 255, 0.1), 0 4px 6px -2px rgba(248, 250, 250, 0.05);
+        }
+
+        .featurebox {
+            background: #ff8000;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .featurebox i {
+            font-size: 40px;
+            color: #ff6b2c;
+            margin-bottom: 15px;
+        }
+
+        .featurebox h4 {
+            margin-bottom: 10px;
+        }
+
+        .status {
+            max-width: 1200px;
+            margin: 70px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+
+        }
+
+        .statbox {
+            background: #ff8000;
+            text-align: center;
+            padding: 35px;
+            border-radius: 20px;
+
+        }
+
+        .maps {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .map-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        .contact-branches {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .contact-branches p {
+            margin-top: 15px;
+            color: #bdbdbd;
+        }
+
+        @media(max-width:768px) {
+
+            .branch-hero h1 {
+                font-size: 40px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header class="navbar">
         <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
@@ -27,14 +212,145 @@
             <span></span>
         </div>
         <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
         </div>
     </header>
 
     <main class="page-container">
-        <h2 class="page-title">Our Branches</h2>
-        <p class="page-subtitle">Location and opening hours coming soon...</p>
+        <div class="box">
+            <h2 class="page-title">Our Branches</h2>
+            <p class="page-description">Visit your nearest AromaWeb location and enjoy a premium dining experience.</p>
+            <br>
+        </div>
+        <div class="card-container">
+            <div class="location-card">
+                <div class="card-header">
+                    <span class="pin">📍</span>
+                    <h2 class="city">Kathmandu Branch</h2>
+                </div>
+                <p class="area">New Baneshwor</p>
+                <div class="info-row">
+                    <span class="icon">⭐</span>
+                    <span class="rating">4.8</span>
+                </div>
+                <div class="info-row">
+                    <span class="icon">🕒</span>
+                    <span class="hours">10:00 AM - 10:00 PM</span>
+                    <div class="info-row">
+                        <span class="info-icon">☎</span>
+                        <span>+9779762198641</span>
+                    </div>
+                    <a href="#" class="details-btn">View Details</a>
+                </div>
+            </div>
+            <div class="location-card">
+                <div class="card-header">
+                    <span class="pin">📍</span>
+                    <h2 class="city">Pokhara Branch</h2>
+                </div>
+                <p class="area">Lakeside</p>
+                <div class="info-row">
+                    <span class="icon">⭐</span>
+                    <span class="rating">4.7</span>
+                </div>
+                <div class="info-row">
+                    <span class="icon">🕒</span>
+                    <span class="hours">10:00 AM - 10:00 PM</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-icon">☎</span>
+                    <span>+9779762198641</span>
+                </div>
+                <a href="#" class="details-btn">View Details</a>
+            </div>
+            <div class="location-card">
+                <div class="card-header">
+                    <span class="pin">📍</span>
+                    <h2 class="city">Chitwan Branch</h2>
+                </div>
+                <p class="area">Bharatpur</p>
+                <div class="info-row">
+                    <span class="icon">⭐</span>
+                    <span class="rating">4.6</span>
+                </div>
+                <div class="info-row">
+                    <span class="icon">🕒</span>
+                    <span class="hours">10:00 AM - 10:00 PM</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-icon">☎</span>
+                    <span>+9779762198641</span>
+                </div>
+                <a href="#" class="details-btn">View Details</a>
+            </div>
+        </div>
     </main>
     <script src="../script/auth-script.js"></script>
+    <section class="features">
+
+        <h2 class="sectiontitle">Why Visit Us?</h2>
+
+        <div class="featuregrid">
+
+            <div class="featurebox">
+                <i class="fas fa-mug-hot"></i>
+                <h4>Premium Coffee</h4>
+                <p>Freshly brewed every day.</p>
+            </div>
+
+            <div class="featurebox">
+                <i class="fas fa-wifi"></i>
+                <h4>Free WiFi</h4>
+                <p>Stay connected while dining.</p>
+            </div>
+
+            <div class="featurebox">
+                <i class="fas fa-car"></i>
+                <h4>Parking</h4>
+                <p>Easy parking available.</p>
+            </div>
+
+            <div class="featurebox">
+                <i class="fas fa-music"></i>
+                <h4>Live Music</h4>
+                <p>Weekend entertainment.</p>
+            </div>
+
+        </div>
+    </section>
+    <section class="status">
+        <div class="statbox">
+            <h2>3</h2>
+            <p>Branches</p>
+        </div>
+        <div class="statbox">
+            <h2>50K+</h2>
+            <p>Happy Customers</p>
+        </div>
+        <div class="statbox">
+            <h2>4.8★</h2>
+            <p>Average Rating</p>
+        </div>
+        <div class="statbox">
+            <h2>100+</h2>
+            <p>Staff Members</p>
+        </div>
+    </section>
+    <section class="maps">
+        <h2 class="section-title">Find Us Here</h2>
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1234567890123!2d85.32456789012345!3d27.71723456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190123456789%3A0xabcdef1234567890!2sAromaWeb%20Kathmandu%20Branch!5e0!3m2!1sen!2snp!4v1700000000000"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+    <section class="contact-branches">
+
+        <h2 class="section-title">Contact Our Branches</h2>
+
+        <p>📍 Kathmandu | Pokhara | Chitwan</p>
+        <p>☎ +977 9812345678</p>
+        <p>✉ info@aromaweb.com</p>
+
+    </section>
 </body>
+
 </html>
