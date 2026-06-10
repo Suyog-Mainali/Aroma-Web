@@ -1,131 +1,209 @@
-// script/menu-script.js
+// store menu items for filtering
+var allMenuItems = [];
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Check if we are on the menu page
-    const menuGrid = document.getElementById('menu-grid');
+// load menu when page is ready
+window.addEventListener("load", function () {
+    var menuGrid = document.getElementById("menu-grid");
     if (menuGrid) {
         loadMenu();
     }
 });
 
-let allMenuItems = [];
+// fetch menu data from text file
+function loadMenu() {
+    fetch("../assets/menu_data/menu.txt")
+        .then(function (response) {
+            if (!response.ok) {
+                throw new Error("Failed to load menu file.");
+            }
+            return response.text();
+        })
+        .then(function (text) {
+            allMenuItems = parseMenuText(text);
+            populateFilters(allMenuItems);
+            renderMenu(allMenuItems);
 
-// Load the menu from the text file
-async function loadMenu() {
-    try {
-        const response = await fetch('../assets/menu_data/menu.txt');
-        if (!response.ok) {
-            throw new Error('Failed to load menu. Note: CORS might block file:// protocols.');
-        }
-        const text = await response.text();
-        allMenuItems = parseMenuText(text);
-        
-        populateFilters(allMenuItems);
-        renderMenu(allMenuItems);
-        
-        // Listeners for filters
-        const btnFilter = document.getElementById('btn-filter');
-        if (btnFilter) btnFilter.addEventListener('click', applyFilters);
-        
-        const searchInput = document.getElementById('search-input');
-        if (searchInput) searchInput.addEventListener('input', applyFilters);
-        
-    } catch (error) {
-        document.getElementById('menu-grid').innerHTML = `<div class="empty-state">${error.message}</div>`;
-    }
+            var btnFilter = document.getElementById("btn-filter");
+            if (btnFilter) {
+                btnFilter.onclick = applyFilters;
+            }
+
+            var searchInput = document.getElementById("search-input");
+            if (searchInput) {
+                searchInput.oninput = applyFilters;
+            }
+        })
+        .catch(function (error) {
+            document.getElementById("menu-grid").innerHTML =
+                '<div class="empty-state">' + error.message + "</div>";
+        });
 }
 
-// Parse text blocks into objects
+// parse text blocks into objects
 function parseMenuText(text) {
-    const items = [];
-    const blocks = text.split(/\n\s*\n/);
-    
-    for (const block of blocks) {
-        if (!block.trim()) continue;
-        const lines = block.split('\n');
-        const item = {};
-        for (const line of lines) {
-            const colonIndex = line.indexOf(':');
+    var items = [];
+    var blocks = text.split(/\n\s*\n/);
+
+    for (var i = 0; i < blocks.length; i++) {
+        var block = blocks[i].trim();
+        if (block === "") {
+            continue; 
+        }
+
+        var lines = block.split("\n");
+        var item = {};
+
+        for (var j = 0; j < lines.length; j++) {
+            var line = lines[j];
+            var colonIndex = line.indexOf(":");
             if (colonIndex !== -1) {
-                const key = line.substring(0, colonIndex).trim();
-                const value = line.substring(colonIndex + 1).trim();
+                var key = line.substring(0, colonIndex).trim();
+                var value = line.substring(colonIndex + 1).trim();
                 item[key] = value;
             }
         }
-        if (item['Title']) {
+
+        if (item["Title"]) {
             items.push(item);
         }
     }
+
     return items;
 }
 
-// Populate the dropdown filters dynamically
+// fill dropdowns with unique categories
 function populateFilters(items) {
-    const categories = new Set();
-    const diets = new Set();
-    const spices = new Set();
-    
-    items.forEach(item => {
-        if (item.Category) categories.add(item.Category);
-        if (item.Diet) diets.add(item.Diet);
-        if (item.Spice) spices.add(item.Spice);
-    });
-    
-    const catSelect = document.getElementById('filter-category');
-    if (catSelect) categories.forEach(c => catSelect.add(new Option(c, c)));
-    
-    const dietSelect = document.getElementById('filter-diet');
-    if (dietSelect) diets.forEach(d => dietSelect.add(new Option(d, d)));
-    
-    const spiceSelect = document.getElementById('filter-spice');
-    if (spiceSelect) spices.forEach(s => spiceSelect.add(new Option(s, s)));
+    var categories = [];
+    var diets = [];
+    var spices = [];
+
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].Category && categories.indexOf(items[i].Category) === -1) {
+            categories.push(items[i].Category);
+        }
+        if (items[i].Diet && diets.indexOf(items[i].Diet) === -1) {
+            diets.push(items[i].Diet);
+        }
+        if (items[i].Spice && spices.indexOf(items[i].Spice) === -1) {
+            spices.push(items[i].Spice);
+        }
+    }
+
+    var catSelect = document.getElementById("filter-category");
+    if (catSelect) {
+        for (var i = 0; i < categories.length; i++) {
+            var option = document.createElement("option");
+            option.value = categories[i];
+            option.textContent = categories[i];
+            catSelect.appendChild(option);
+        }
+    }
+
+    var dietSelect = document.getElementById("filter-diet");
+    if (dietSelect) {
+        for (var i = 0; i < diets.length; i++) {
+            var option = document.createElement("option");
+            option.value = diets[i];
+            option.textContent = diets[i];
+            dietSelect.appendChild(option);
+        }
+    }
+
+    var spiceSelect = document.getElementById("filter-spice");
+    if (spiceSelect) {
+        for (var i = 0; i < spices.length; i++) {
+            var option = document.createElement("option");
+            option.value = spices[i];
+            option.textContent = spices[i];
+            spiceSelect.appendChild(option);
+        }
+    }
 }
 
-// Apply selected filters
+// apply current filters and update grid
 function applyFilters() {
-    const search = document.getElementById('search-input').value.toLowerCase();
-    const category = document.getElementById('filter-category').value;
-    const diet = document.getElementById('filter-diet').value;
-    const spice = document.getElementById('filter-spice').value;
-    
-    const filtered = allMenuItems.filter(item => {
-        const matchSearch = !search || 
-            (item.Title && item.Title.toLowerCase().includes(search)) || 
-            (item.Description && item.Description.toLowerCase().includes(search));
-        const matchCategory = !category || item.Category === category;
-        const matchDiet = !diet || item.Diet === diet;
-        const matchSpice = !spice || item.Spice === spice;
-        
-        return matchSearch && matchCategory && matchDiet && matchSpice;
-    });
-    
+    var search = document.getElementById("search-input").value.toLowerCase();
+    var category = document.getElementById("filter-category").value;
+    var diet = document.getElementById("filter-diet").value;
+    var spice = document.getElementById("filter-spice").value;
+
+    var filtered = [];
+
+    for (var i = 0; i < allMenuItems.length; i++) {
+        var item = allMenuItems[i];
+
+        var matchSearch = true;
+        if (search !== "") {
+            var title = (item.Title || "").toLowerCase();
+            var desc = (item.Description || "").toLowerCase();
+            if (title.indexOf(search) === -1 && desc.indexOf(search) === -1) {
+                matchSearch = false;
+            }
+        }
+
+        var matchCategory = true;
+        if (category !== "" && item.Category !== category) {
+            matchCategory = false;
+        }
+
+        var matchDiet = true;
+        if (diet !== "" && item.Diet !== diet) {
+            matchDiet = false;
+        }
+
+        var matchSpice = true;
+        if (spice !== "" && item.Spice !== spice) {
+            matchSpice = false;
+        }
+
+        if (matchSearch && matchCategory && matchDiet && matchSpice) {
+            filtered.push(item);
+        }
+    }
+
     renderMenu(filtered);
 }
 
-// Render the HTML for menu items
+// display menu items as html cards
 function renderMenu(items) {
-    const grid = document.getElementById('menu-grid');
-    const stats = document.getElementById('menu-stats');
-    
-    if (stats) stats.textContent = `${items.length} items found`;
-    
+    var grid = document.getElementById("menu-grid");
+    var stats = document.getElementById("filter-stats");
+
+    if (stats) {
+        stats.textContent = items.length + " items found";
+    }
+
     if (items.length === 0) {
         grid.innerHTML = '<div class="empty-state">No menu items match your filters.</div>';
         return;
     }
-    
-    grid.innerHTML = items.map(item => `
-        <div class="menu-card">
-            <div class="menu-card-header">
-                <div class="menu-card-title">${item.Title || 'Unknown Item'}</div>
-                <div class="menu-card-price">${item.Price || ''}</div>
-            </div>
-            <div class="menu-card-desc">${item.Description || ''}</div>
-            <div class="menu-tags">
-                ${item.Category ? `<span class="menu-tag">${item.Category}</span>` : ''}
-                ${item.Diet ? `<span class="menu-tag">${item.Diet}</span>` : ''}
-                ${item.Spice ? `<span class="menu-tag">${item.Spice}</span>` : ''}
-            </div>
-        </div>
-    `).join('');
+
+    var html = "";
+
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+
+        html += '<div class="menu-card">';
+        html += '  <div class="card-header">';
+        html += '    <div class="card-title">' + (item.Title || "Unknown Item") + "</div>";
+        html += '    <div class="card-price">' + (item.Price || "") + "</div>";
+        html += "  </div>";
+        html += '  <div class="card-desc">' + (item.Description || "") + "</div>";
+        html += '  <div class="card-tags">';
+
+        if (item.Category) {
+            html += '    <span class="tag">' + item.Category + "</span>";
+        }
+        if (item.Diet) {
+            html += '    <span class="tag">' + item.Diet + "</span>";
+        }
+        if (item.Spice) {
+            html += '    <span class="tag">' + item.Spice + "</span>";
+        }
+
+        html += "  </div>";
+        html += "</div>";
+    }
+
+    grid.innerHTML = html;
 }

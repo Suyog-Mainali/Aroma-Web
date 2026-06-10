@@ -1,6 +1,4 @@
-/* style/index-style.css */
-
-/* Hero Section */
+/* hero section */
 .hero {
     min-height: calc(100vh - 88px);
     background: linear-gradient(105deg, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.8) 45%, rgba(18,18,18,0.3) 100%), url('../assets/hero_bg.jpg');
@@ -14,7 +12,7 @@
     position: relative;
 }
 
-.hero-content {
+.hero-text {
     max-width: 650px;
     z-index: 10;
     animation: fadeIn 1s ease-out forwards;
@@ -25,7 +23,7 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-.hero-content h1 {
+.hero-text h1 {
     font-size: 4.5rem;
     font-weight: 700;
     line-height: 1.1;
@@ -37,7 +35,7 @@
     color: var(--primary-color);
 }
 
-.hero-content p {
+.hero-text p {
     font-size: 1.15rem;
     color: var(--text-muted);
     margin-bottom: 2.5rem;
@@ -49,14 +47,13 @@
     font-size: 1.05rem;
 }
 
-/* Responsive for Hero */
 @media (max-width: 1024px) {
-    .hero-content h1 { font-size: 3.5rem; }
+    .hero-text h1 { font-size: 3.5rem; }
 }
 
 @media (max-width: 768px) {
     .hero { padding: 4rem 5%; text-align: center; }
-    .hero-content h1 { font-size: 2.8rem; }
-    .hero-content { margin: 0 auto; }
-    .hero-content p { margin: 0 auto 2rem auto; font-size: 1rem; }
+    .hero-text h1 { font-size: 2.8rem; }
+    .hero-text { margin: 0 auto; }
+    .hero-text p { margin: 0 auto 2rem auto; font-size: 1rem; }
 }

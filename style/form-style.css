@@ -1,7 +1,5 @@
-/* style/form-style.css */
-/* Used for Login, Register, Reservation */
-
-.form-container {
+/* form container */
+.form-box {
     max-width: 500px;
     margin: 2rem auto;
     background: rgba(255, 255, 255, 0.05);
@@ -13,7 +11,7 @@
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-.form-container.large {
+.form-box.large {
     max-width: 700px;
 }
 
@@ -37,23 +35,24 @@
     margin-bottom: 1rem;
 }
 
-.form-row .form-group {
+.form-row .input-group {
     flex: 1;
     margin-bottom: 0;
 }
 
-.form-group {
+.input-group {
     margin-bottom: 1.5rem;
 }
 
-.form-label {
+.label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
     font-size: 0.95rem;
 }
 
-.form-input, .form-textarea, .form-select {
+/* inputs */
+.input-field, .textarea-field, .dropdown {
     width: 100%;
     padding: 0.8rem 1rem;
     background: rgba(0, 0, 0, 0.2);
@@ -65,34 +64,35 @@
     transition: all 0.3s ease;
 }
 
-.form-input:focus, .form-textarea:focus, .form-select:focus {
+.input-field:focus, .textarea-field:focus, .dropdown:focus {
     outline: none;
     border-color: var(--primary-color);
     background: rgba(0, 0, 0, 0.4);
 }
 
-.form-textarea {
+.textarea-field {
     resize: vertical;
     min-height: 120px;
 }
 
-.form-select {
+.dropdown {
     appearance: none;
     cursor: pointer;
 }
-.form-select option {
+
+.dropdown option {
     background: var(--bg-dark);
     color: var(--text-light);
 }
 
-.form-check {
+.checkbox-group {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
-.form-check-input {
+.checkbox {
     accent-color: var(--primary-color);
     width: 16px;
     height: 16px;
@@ -127,7 +127,7 @@
         flex-direction: column;
         gap: 0;
     }
-    .form-row .form-group {
+    .form-row .input-group {
         margin-bottom: 1.5rem;
     }
 }

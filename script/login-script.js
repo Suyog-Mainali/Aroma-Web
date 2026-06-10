@@ -1,29 +1,31 @@
-// script/login-script.js
+// login validation
+window.addEventListener("load", function () {
+    var loginForm = document.querySelector("form");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.querySelector('form');
-    
     if (loginForm) {
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevents default form submission
+        loginForm.onsubmit = function (e) {
+            e.preventDefault();
 
-            // Retrieves input values
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
 
-            // Fetches users array from localStorage
-            let users = JSON.parse(localStorage.getItem('aroma_users')) || [];
+            var usersData = localStorage.getItem("aroma_users");
+            var users = usersData ? JSON.parse(usersData) : [];
 
-            // Finds matching user
-            const matchedUser = users.find(user => user.email === email && user.password === password);
+            var matchedUser = null;
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].email === email && users[i].password === password) {
+                    matchedUser = users[i];
+                    break;
+                }
+            }
 
             if (matchedUser) {
-                // Saves the active user session in local storage
-                localStorage.setItem('aroma_active_user', JSON.stringify(matchedUser));
-                
-                // Redirects to homepage
+                localStorage.setItem("aroma_active_user", JSON.stringify(matchedUser));
                 window.location.href = "../index.html";
+            } else {
+                alert("Wrong email or password. Please try again.");
             }
-        });
+        };
     }
 });

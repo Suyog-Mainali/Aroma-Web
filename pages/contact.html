@@ -6,12 +6,11 @@
     <title>AromaWeb - Contact Us</title>
     <link rel="stylesheet" href="../style/common-style.css">
     <link rel="stylesheet" href="../style/contact-style.css">
-    <link rel="stylesheet" href="../style/form-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -28,67 +27,42 @@
             <span></span>
             <span></span>
         </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="padding-top: 2rem;">
-        <div class="form-header">
-            <h2 class="page-title" style="margin-bottom: 0.5rem;">Get in Touch</h2>
-            <p class="page-subtitle" style="margin-top: 0;">Have a question about our menu or delivery? Drop us a message.</p>
-        </div>
-
+    <main class="content">
+        <h2 class="page-title">Get In Touch</h2>
+        <p class="page-subtitle">We would love to hear from you. Reach out with any questions, feedback, or catering requests.</p>
+        
         <div class="contact-grid">
-            <div class="contact-info">
+            <div class="contact-card">
                 <h3>Contact Information</h3>
                 
                 <div class="contact-detail">
-                    <h4>Address</h4>
-                    <p>123 Culinary Way<br>Oshawa, ON L1H 7K4<br>Canada</p>
+                    <h4>Phone Number</h4>
+                    <p>(905) 555-0198</p>
                 </div>
                 
                 <div class="contact-detail">
-                    <h4>Phone</h4>
-                    <p>+1 (905) 555-0198</p>
-                </div>
-                
-                <div class="contact-detail">
-                    <h4>Email</h4>
+                    <h4>Email Address</h4>
                     <p>hello@aromaweb.ca</p>
                 </div>
                 
                 <div class="contact-detail">
-                    <h4>Business Hours</h4>
-                    <p>Mon-Fri: 8:00 AM - 8:00 PM<br>Sat-Sun: 9:00 AM - 5:00 PM</p>
+                    <h4>Main Location</h4>
+                    <p>123 Culinary Ave<br>Oshawa, ON L1H 7K4</p>
+                </div>
+                
+                <div class="contact-detail">
+                    <h4>Working Hours</h4>
+                    <p>Mon - Fri: 11:00 AM - 10:00 PM<br>Sat - Sun: 9:00 AM - 11:00 PM</p>
                 </div>
             </div>
             
-            <div class="form-container" style="margin: 0; max-width: none; box-shadow: none;">
-                <form action="#" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="e.g. John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email Address</label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-input" placeholder="What is this regarding?" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-textarea" placeholder="Write your message here..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+            <div class="contact-card">
+                <h3>Send a Message</h3>
+                <p>Form coming soon...</p>
             </div>
         </div>
     </main>

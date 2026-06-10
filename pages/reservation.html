@@ -6,11 +6,11 @@
     <title>AromaWeb - Reservation</title>
     <link rel="stylesheet" href="../style/common-style.css">
     <link rel="stylesheet" href="../style/form-style.css">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -27,13 +27,12 @@
             <span></span>
             <span></span>
         </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="padding-top: 2rem;">
-        <div class="form-container large" style="margin-top: 0;">
+    <main class="content" style="padding-top: 2rem;">
+        <div class="form-box large" style="margin-top: 0;">
             <div class="form-header">
                 <h2 class="page-title" style="margin-bottom: 0.5rem;">Book a Table</h2>
                 <p class="page-subtitle" style="margin-top: 0;">Reserve a spot at one of our AromaWeb locations for a fresh, authentic dining experience.</p>
@@ -41,31 +40,31 @@
             
             <form action="#" method="POST">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullname" class="form-label">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="e.g. John Doe" required>
+                    <div class="input-group">
+                        <label for="fullname" class="label">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="input-field" placeholder="e.g. John Doe" required>
                     </div>
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. (123) 456-7890" required>
+                    <div class="input-group">
+                        <label for="phone" class="label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="input-field" placeholder="e.g. (123) 456-7890" required>
                     </div>
                 </div>
                 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="date" class="form-label">Reservation Date</label>
-                        <input type="date" id="date" name="date" class="form-input" required>
+                    <div class="input-group">
+                        <label for="date" class="label">Reservation Date</label>
+                        <input type="date" id="date" name="date" class="input-field" required>
                     </div>
-                    <div class="form-group">
-                        <label for="time" class="form-label">Reservation Time</label>
-                        <input type="time" id="time" name="time" class="form-input" required>
+                    <div class="input-group">
+                        <label for="time" class="label">Reservation Time</label>
+                        <input type="time" id="time" name="time" class="input-field" required>
                     </div>
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="people" class="form-label">Number of People</label>
-                        <select id="people" name="people" class="form-select" required>
+                    <div class="input-group">
+                        <label for="people" class="label">Number of People</label>
+                        <select id="people" name="people" class="dropdown" required>
                             <option value="1">1 Person</option>
                             <option value="2" selected>2 People</option>
                             <option value="3">3 People</option>
@@ -75,9 +74,9 @@
                             <option value="7+">7+ People (Large Group)</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="tables" class="form-label">Number of Tables</label>
-                        <select id="tables" name="tables" class="form-select" required>
+                    <div class="input-group">
+                        <label for="tables" class="label">Number of Tables</label>
+                        <select id="tables" name="tables" class="dropdown" required>
                             <option value="1" selected>1 Table</option>
                             <option value="2">2 Tables</option>
                             <option value="3">3 Tables</option>
@@ -86,12 +85,12 @@
                     </div>
                 </div>
                 
-                <div class="form-group">
-                    <label for="requests" class="form-label">Special Requests (Optional)</label>
-                    <textarea id="requests" name="requests" class="form-textarea" placeholder="Any dietary restrictions, seating preferences, or special occasions?"></textarea>
+                <div class="input-group">
+                    <label for="requests" class="label">Special Requests (Optional)</label>
+                    <textarea id="requests" name="requests" class="textarea-field" placeholder="Any dietary restrictions, seating preferences, or special occasions?"></textarea>
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-full">Confirm Reservation</button>
+                <button type="submit" class="btn btn-orange btn-full">Confirm Reservation</button>
             </form>
         </div>
     </main>

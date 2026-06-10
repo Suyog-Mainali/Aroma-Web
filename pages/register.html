@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -27,13 +27,12 @@
             <span></span>
             <span></span>
         </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="min-height: calc(100vh - 88px); display: flex; align-items: center; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
-        <div class="form-container large">
+    <main class="content" style="display: flex; align-items: center; justify-content: center; padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="form-box large">
             <div class="form-header">
                 <h2>Create an Account</h2>
                 <p>Join AromaWeb for fresh, daily home-cooked meals</p>
@@ -41,37 +40,37 @@
             
             <form action="#" method="POST">
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="fullname" class="form-label">Full Name</label>
-                        <input type="text" id="fullname" name="fullname" class="form-input" placeholder="e.g. John Doe" required>
+                    <div class="input-group">
+                        <label for="fullname" class="label">Full Name</label>
+                        <input type="text" id="fullname" name="fullname" class="input-field" placeholder="e.g. John Doe" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="phone" class="form-label">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. (123) 456-7890" required>
+                    <div class="input-group">
+                        <label for="phone" class="label">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" class="input-field" placeholder="e.g. (123) 456-7890" required>
                     </div>
                 </div>
                 
                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                    <div class="input-group">
+                        <label for="email" class="label">Email Address</label>
+                        <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" id="password" name="password" class="form-input" placeholder="Create a password" required>
+                    <div class="input-group">
+                        <label for="password" class="label">Password</label>
+                        <input type="password" id="password" name="password" class="input-field" placeholder="Create a password" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="address" class="form-label">Delivery Address (Oshawa region)</label>
-                    <input type="text" id="address" name="address" class="form-input" placeholder="Street Address, Apt/Suite" required>
+                <div class="input-group">
+                    <label for="address" class="label">Delivery Address (Oshawa region)</label>
+                    <input type="text" id="address" name="address" class="input-field" placeholder="Street Address, Apt/Suite" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="dietary" class="form-label">Dietary Preferences</label>
-                    <select id="dietary" name="dietary" class="form-select">
+                <div class="input-group">
+                    <label for="dietary" class="label">Dietary Preferences</label>
+                    <select id="dietary" name="dietary" class="dropdown">
                         <option value="none">None</option>
                         <option value="vegetarian">Vegetarian</option>
                         <option value="vegan">Vegan</option>
@@ -80,12 +79,12 @@
                     </select>
                 </div>
                 
-                <div class="form-check" style="margin-top: 1.5rem;">
-                    <input type="checkbox" id="terms" class="form-check-input" required>
+                <div class="checkbox-group" style="margin-top: 1.5rem;">
+                    <input type="checkbox" id="terms" class="checkbox" required>
                     <label for="terms" style="font-size: 0.9rem;">I agree to the <a href="#" class="form-link">Terms of Service</a> and <a href="#" class="form-link">Privacy Policy</a></label>
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 1.5rem;">Register Account</button>
+                <button type="submit" class="btn btn-orange btn-full" style="margin-top: 1.5rem;">Register Account</button>
             </form>
             
             <div class="form-footer">

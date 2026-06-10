@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -27,33 +27,32 @@
             <span></span>
             <span></span>
         </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="padding: 2rem 6%;">
-        <div class="filter-bar">
-            <div class="filter-stats" id="menu-stats">Loading...</div>
+    <main class="content" style="padding: 2rem 6%;">
+        <div class="filter-section">
+            <div class="filter-stats" id="filter-stats">Loading...</div>
             <div class="filter-controls">
-                <div class="filter-search">
+                <div class="search-box">
                     <input type="text" id="search-input" placeholder="Search...">
                 </div>
-                <select id="filter-category" class="filter-select">
+                <select id="filter-category" class="filter-dropdown">
                     <option value="">Category (All)</option>
                 </select>
-                <select id="filter-diet" class="filter-select">
+                <select id="filter-diet" class="filter-dropdown">
                     <option value="">Diet (All)</option>
                 </select>
-                <select id="filter-spice" class="filter-select">
+                <select id="filter-spice" class="filter-dropdown">
                     <option value="">Spice (All)</option>
                 </select>
-                <button id="btn-filter" class="btn btn-primary" style="padding: 0.6rem 2rem;">Filter</button>
+                <button id="btn-filter" class="btn btn-orange" style="padding: 0.6rem 2rem;">Filter</button>
             </div>
         </div>
 
         <div id="menu-grid" class="menu-grid">
-            <!-- Menu items will be injected here via JavaScript -->
+            <!-- Menu items injected here -->
         </div>
     </main>
 

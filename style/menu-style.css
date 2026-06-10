@@ -1,7 +1,5 @@
-/* style/menu-style.css */
-
-/* Filter Bar */
-.filter-bar {
+/* menu filters */
+.filter-section {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
@@ -25,7 +23,7 @@
     align-items: center;
 }
 
-.filter-search input {
+.search-box input {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
@@ -35,12 +33,12 @@
     font-family: var(--font-main);
 }
 
-.filter-search input:focus {
+.search-box input:focus {
     outline: none;
     border-color: var(--primary-color);
 }
 
-.filter-select {
+.filter-dropdown {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 8px;
@@ -52,16 +50,16 @@
     min-width: 140px;
 }
 
-.filter-select:focus {
+.filter-dropdown:focus {
     outline: none;
     border-color: var(--primary-color);
 }
 
-.filter-select option {
+.filter-dropdown option {
     background: var(--bg-dark);
 }
 
-/* Menu Grid */
+/* menu cards */
 .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -83,38 +81,38 @@
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.menu-card-header {
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1rem;
 }
 
-.menu-card-title {
+.card-title {
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--primary-color);
 }
 
-.menu-card-price {
+.card-price {
     font-size: 1.1rem;
     font-weight: 700;
 }
 
-.menu-card-desc {
+.card-desc {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     flex-grow: 1;
 }
 
-.menu-tags {
+.card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
 
-.menu-tag {
+.tag {
     background: rgba(255, 255, 255, 0.1);
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;

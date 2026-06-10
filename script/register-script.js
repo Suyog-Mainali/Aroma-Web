@@ -1,50 +1,54 @@
-// script/register-script.js
+// user registration
+window.addEventListener("load", function () {
+    var registerForm = document.querySelector("form");
 
-document.addEventListener('DOMContentLoaded', () => {
-    const registerForm = document.querySelector('form');
-    
     if (registerForm) {
-        registerForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevents default form submission
+        registerForm.onsubmit = function (e) {
+            e.preventDefault();
 
-            // Retrieve the values from the form inputs
-            const fullname = document.getElementById('fullname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value;
-            const phone = document.getElementById('phone').value.trim();
-            const address = document.getElementById('address').value.trim();
-            const dietary = document.getElementById('dietary').value;
-            
-            // Performs basic validation check
-            if (!fullname || !email || !password) {
+            var fullname = document.getElementById("fullname").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var address = document.getElementById("address").value;
+            var dietary = document.getElementById("dietary").value;
+            var termsChecked = document.getElementById("terms").checked;
+
+            if (!termsChecked) {
+                alert("You must agree to the Terms of Service.");
                 return;
             }
 
-            // Creates a user object
-            const newUser = {
-                fullname,
-                email,
-                password,
-                phone,
-                address,
-                dietary
+            var usersData = localStorage.getItem("aroma_users");
+            var users = usersData ? JSON.parse(usersData) : [];
+
+            var emailExists = false;
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].email === email) {
+                    emailExists = true;
+                    break;
+                }
+            }
+
+            if (emailExists) {
+                alert("An account with this email already exists!");
+                return;
+            }
+
+            var newUser = {
+                fullname: fullname,
+                phone: phone,
+                email: email,
+                password: password,
+                address: address,
+                dietary: dietary
             };
 
-            // Fetches existing users from localStorage or initializes an empty array
-            let users = JSON.parse(localStorage.getItem('aroma_users')) || [];
-
-            // Checks if email is already registered
-            const userExists = users.some(user => user.email === email);
-            if (userExists) {
-                return;
-            }
-
-            // Adds new user to array and saves to localStorage
             users.push(newUser);
-            localStorage.setItem('aroma_users', JSON.stringify(users));
+            localStorage.setItem("aroma_users", JSON.stringify(users));
 
-            // Redirects to login
+            alert("Registration successful! You can now log in.");
             window.location.href = "login.html";
-        });
+        };
     }
 });
