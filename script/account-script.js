@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
             if (dietValue === "none" || dietValue === "") {
                 dietDisplay.innerText = "No specific preference";
             } else {
-                dietDisplay.innerText = dietValue.charAt(0).toUpperCase() + dietValue.slice(1);
+                dietDisplay.innerText = dietValue;
             }
         }
     } else {
