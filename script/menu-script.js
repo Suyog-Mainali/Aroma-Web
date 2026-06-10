@@ -1,7 +1,7 @@
-// store menu items for filtering
+// stores menu items for filtering
 var allMenuItems = [];
 
-// load menu when page is ready
+// loads menu when page is ready
 window.addEventListener("load", function () {
     var menuGrid = document.getElementById("menu-grid");
     if (menuGrid) {
@@ -9,7 +9,7 @@ window.addEventListener("load", function () {
     }
 });
 
-// fetch menu data from text file
+// fetches menu data from text file
 function loadMenu() {
     fetch("../assets/menu_data/menu.txt")
         .then(function (response) {
@@ -39,7 +39,7 @@ function loadMenu() {
         });
 }
 
-// parse text blocks into objects
+// parses text blocks into objects
 function parseMenuText(text) {
     var items = [];
     var blocks = text.split(/\n\s*\n/);
@@ -71,7 +71,7 @@ function parseMenuText(text) {
     return items;
 }
 
-// fill dropdowns with unique categories
+// fills dropdowns with unique categories
 function populateFilters(items) {
     var categories = [];
     var diets = [];
@@ -120,7 +120,7 @@ function populateFilters(items) {
     }
 }
 
-// apply current filters and update grid
+// applies current filters and updates grid
 function applyFilters() {
     var search = document.getElementById("search-input").value.toLowerCase();
     var category = document.getElementById("filter-category").value;
@@ -164,7 +164,7 @@ function applyFilters() {
     renderMenu(filtered);
 }
 
-// display menu items as html cards
+// displays menu items as html cards
 function renderMenu(items) {
     var grid = document.getElementById("menu-grid");
     var stats = document.getElementById("filter-stats");
