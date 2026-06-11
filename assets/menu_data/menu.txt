@@ -46,3 +46,10 @@ Diet: Non-Vegetarian
 Spice: Mild
 Price: $10.99
 Description: Big Momos !!!!!
+
+Title: Fish Curry
+Category: Main Course
+Diet: Non-Vegetarian
+Spice: Hot
+Price: $12.99
+Description:Fih Cooked with oil and combined with curry
