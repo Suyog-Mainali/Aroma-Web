@@ -8,8 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ── GALLERY PAGE STYLES ── */
-
         /* Page Header */
         .gallery-header {
             text-align: center;
@@ -215,15 +213,6 @@
             color: #fff;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-                gap: 1rem;
-            }
-            .gallery-item img { height: 155px; }
-            .gallery-header .page-title { font-size: 2rem; }
-        }
     </style>
 </head>
 <body>
@@ -639,71 +628,8 @@
     </div>
 
     <script src="../script/auth-script.js"></script>
+    <script src="../script/gallery-script.js"></script>
 
-    <script>
-        /* ── HAMBURGER TOGGLE ── */
-        const hamburger = document.getElementById('hamburger');
-        const navMenu   = document.querySelector('nav ul');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        /* ── FILTER ── */
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const allItems   = document.querySelectorAll('.gallery-item');
-        const sections   = {
-            dish:  { grid: document.getElementById('grid-dish'),  label: document.getElementById('label-dish')  },
-            drink: { grid: document.getElementById('grid-drink'), label: document.getElementById('label-drink') },
-            bev:   { grid: document.getElementById('grid-bev'),   label: document.getElementById('label-bev')   },
-            juice: { grid: document.getElementById('grid-juice'), label: document.getElementById('label-juice') },
-            combo: { grid: document.getElementById('grid-combo'), label: document.getElementById('label-combo') },
-        };
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const f = btn.dataset.filter;
-
-                allItems.forEach(item => {
-                    item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
-                });
-
-                Object.entries(sections).forEach(([cat, els]) => {
-                    const show = f === 'all' || f === cat;
-                    els.grid.style.display  = show ? 'grid'  : 'none';
-                    els.label.style.display = show ? 'flex'  : 'none';
-                });
-            });
-        });
-
-        /* ── LIGHTBOX ── */
-        const lightbox = document.getElementById('lightbox');
-        const lbImg    = document.getElementById('lb-img');
-        const lbName   = document.getElementById('lb-name');
-        const lbDesc   = document.getElementById('lb-desc');
-
-        allItems.forEach(item => {
-            item.addEventListener('click', () => {
-                lbImg.src            = item.querySelector('img').src;
-                lbImg.alt            = item.dataset.name;
-                lbName.textContent   = item.dataset.name;
-                lbDesc.textContent   = item.dataset.desc;
-                lightbox.classList.add('open');
-            });
-        });
-
-        document.getElementById('lightbox-close').addEventListener('click', () => {
-            lightbox.classList.remove('open');
-        });
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) lightbox.classList.remove('open');
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') lightbox.classList.remove('open');
-        });
-    </script>
     <footer style="text-align: center">
         <h1>Thank you</h1>
     </footer>
