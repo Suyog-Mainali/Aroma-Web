@@ -1,44 +1,41 @@
-// script/account-script.js
+// account details and logout
+window.addEventListener("load", function () {
+    var activeUserData = localStorage.getItem("aroma_active_user");
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Retrieves active user session from local storage
-    const activeUserStr = localStorage.getItem('aroma_active_user');
+    if (activeUserData) {
+        var user = JSON.parse(activeUserData);
 
-    if (!activeUserStr) {
-        // Redirects to login if no active user exists
+        var nameDisplay = document.getElementById("user-name");
+        var emailDisplay = document.getElementById("user-email");
+        var phoneDisplay = document.getElementById("user-phone");
+        var addressDisplay = document.getElementById("user-address");
+        var dietDisplay = document.getElementById("user-dietary");
+
+        if (nameDisplay) nameDisplay.innerText = user.fullname;
+        if (emailDisplay) emailDisplay.innerText = user.email;
+        if (phoneDisplay) phoneDisplay.innerText = user.phone;
+        if (addressDisplay) addressDisplay.innerText = user.address;
+
+        if (dietDisplay) {
+            var dietValue = user.dietary;
+            if (dietValue === "none" || dietValue === "") {
+                dietDisplay.innerText = "No specific preference";
+            } else {
+                dietDisplay.innerText = dietValue;
+            }
+        }
+    } else {
         window.location.href = "login.html";
-        return;
     }
 
-    const activeUser = JSON.parse(activeUserStr);
-
-    // Populates the HTML elements with user data
-    const nameEl = document.getElementById('user-fullname');
-    const emailEl = document.getElementById('user-email');
-    const phoneEl = document.getElementById('user-phone');
-    const addressEl = document.getElementById('user-address');
-    const dietaryEl = document.getElementById('user-dietary');
-
-    if (nameEl) nameEl.textContent = activeUser.fullname || 'N/A';
-    if (emailEl) emailEl.textContent = activeUser.email || 'N/A';
-    if (phoneEl) phoneEl.textContent = activeUser.phone || 'N/A';
-    if (addressEl) addressEl.textContent = activeUser.address || 'N/A';
-    
-    if (dietaryEl) {
-        // Formats the dietary preference string
-        const dietary = activeUser.dietary;
-        dietaryEl.textContent = dietary !== 'none' ? dietary.charAt(0).toUpperCase() + dietary.slice(1) : 'None';
-    }
-
-    // Handles logout logic
-    const logoutBtn = document.getElementById('logout-btn');
+    var logoutBtn = document.getElementById("logout-btn");
     if (logoutBtn) {
-        logoutBtn.addEventListener('click', () => {
-            // Removes active user from local storage
-            localStorage.removeItem('aroma_active_user');
-            
-            // Redirects to homepage
-            window.location.href = "../index.html";
-        });
+        logoutBtn.onclick = function () {
+            var confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                localStorage.removeItem("aroma_active_user");
+                window.location.href = "../index.html";
+            }
+        };
     }
 });

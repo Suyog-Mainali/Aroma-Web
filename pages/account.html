@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -22,48 +22,42 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="padding-top: 2rem;">
-        <div class="account-container">
+    <main class="content" style="padding-top: 2rem;">
+        <div class="account-box">
             <div class="account-header">
                 <h2>Account Details</h2>
-                <button id="logout-btn" class="btn btn-danger">Log Out</button>
+                <button id="logout-btn" class="btn btn-red">Log Out</button>
             </div>
             
-            <div class="user-info-grid">
+            <div class="info-grid">
                 <div class="info-group">
                     <div class="info-label">Full Name</div>
-                    <div class="info-value" id="user-fullname">Loading...</div>
+                    <div class="info-value" id="user-name"></div>
                 </div>
                 
                 <div class="info-group">
                     <div class="info-label">Email Address</div>
-                    <div class="info-value" id="user-email">Loading...</div>
+                    <div class="info-value" id="user-email"></div>
                 </div>
                 
                 <div class="info-group">
                     <div class="info-label">Phone Number</div>
-                    <div class="info-value" id="user-phone">Loading...</div>
+                    <div class="info-value" id="user-phone"></div>
                 </div>
                 
                 <div class="info-group">
                     <div class="info-label">Dietary Preference</div>
-                    <div class="info-value" id="user-dietary">Loading...</div>
+                    <div class="info-value" id="user-dietary"></div>
                 </div>
             </div>
             
             <div class="info-group" style="margin-top: 1.5rem;">
                 <div class="info-label">Delivery Address</div>
-                <div class="info-value" id="user-address">Loading...</div>
+                <div class="info-value" id="user-address"></div>
             </div>
         </div>
     </main>

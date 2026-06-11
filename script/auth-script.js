@@ -1,63 +1,16 @@
-// script/auth-script.js
-
-document.addEventListener('DOMContentLoaded', () => {
-    // 1. Dynamic Authentication Button
-    const authContainer = document.getElementById('auth-container');
-    const activeUserStr = localStorage.getItem('aroma_active_user');
+// check if user is logged in
+window.addEventListener("load", function () {
+    var authContainer = document.getElementById("auth-buttons");
+    var activeUserData = localStorage.getItem("aroma_active_user");
+    var isHomePage = !window.location.pathname.includes("/pages/");
 
     if (authContainer) {
-        // We determine the correct path to the pages directory based on current URL
-        // If we are in the root (index.html), pages are in 'pages/'
-        // If we are in a page (e.g. login.html), pages are in '' or '../pages/'
-        const isRoot = !window.location.pathname.includes('/pages/');
-        const accountPath = isRoot ? 'pages/account.html' : 'account.html';
-        const loginPath = isRoot ? 'pages/login.html' : 'login.html';
-        const iconPath = isRoot ? 'assets/user-icon.svg' : '../assets/user-icon.svg';
-
-        if (activeUserStr) {
-            const activeUser = JSON.parse(activeUserStr);
-            authContainer.innerHTML = `
-                <a href="${accountPath}" class="btn btn-primary" id="auth-btn">
-                    <img src="${iconPath}" alt="User" class="icon-small" onerror="this.style.display='none'">
-                    My Account
-                </a>
-            `;
+        if (activeUserData) {
+            var accountLink = isHomePage ? "pages/account.html" : "account.html";
+            authContainer.innerHTML = '<a href="' + accountLink + '" class="btn btn-orange" id="auth-btn">My Account</a>';
         } else {
-            authContainer.innerHTML = `
-                <a href="${loginPath}" class="btn btn-primary" id="auth-btn">
-                    <img src="${iconPath}" alt="User" class="icon-small" onerror="this.style.display='none'">
-                    Login & Register
-                </a>
-            `;
+            var loginLink = isHomePage ? "pages/login.html" : "login.html";
+            authContainer.innerHTML = '<a href="' + loginLink + '" class="btn btn-orange" id="auth-btn">Login &amp; Register</a>';
         }
     }
-
-    // 2. Hamburger Menu Logic
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.querySelector('nav ul');
-
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    // 3. Move auth container into hamburger menu on mobile
-    function handleResize() {
-        if (window.innerWidth <= 768) {
-            // Move into navMenu
-            if (authContainer && authContainer.parentNode !== navMenu) {
-                navMenu.appendChild(authContainer);
-            }
-        } else {
-            // Move back to header (before hamburger or at the end)
-            const header = document.querySelector('.navbar');
-            if (authContainer && authContainer.parentNode !== header) {
-                header.appendChild(authContainer);
-            }
-        }
-    }
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial check
 });

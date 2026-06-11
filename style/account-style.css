@@ -1,6 +1,5 @@
-/* style/account-style.css */
 
-.account-container {
+.account-box {
     max-width: 800px;
     margin: 2rem auto;
     background: rgba(255, 255, 255, 0.05);
@@ -26,7 +25,7 @@
     color: var(--primary-color);
 }
 
-.user-info-grid {
+.info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
@@ -49,32 +48,15 @@
     font-weight: 500;
 }
 
-.btn-danger {
+.btn-red {
     background-color: transparent;
     color: #ff5252;
     border: 1px solid #ff5252;
 }
 
-.btn-danger:hover {
+.btn-red:hover {
     background-color: #ff5252;
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(255, 82, 82, 0.3);
-}
-
-@media (max-width: 768px) {
-    .account-container {
-        padding: 2rem;
-    }
-    
-    .user-info-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .account-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
 }

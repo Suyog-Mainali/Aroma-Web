@@ -10,7 +10,7 @@
 </head>
 <body>
     <header class="navbar">
-        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <a href="../index.html" class="logo">AromaWeb</a>
         <nav>
             <ul>
                 <li><a href="../index.html">Home</a></li>
@@ -22,43 +22,37 @@
                 <li><a href="contact.html">Contact Us</a></li>
             </ul>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="nav-buttons" id="auth-container">
-            <!-- Dynamic Auth Button -->
+        <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
 
-    <main class="page-container" style="min-height: calc(100vh - 88px); display: flex; align-items: center; justify-content: center;">
-        <div class="form-container">
+    <main class="content" style="display: flex; align-items: center; justify-content: center;">
+        <div class="form-box">
             <div class="form-header">
                 <h2>Welcome Back</h2>
                 <p>Login to your AromaWeb account</p>
             </div>
             
             <form action="#" method="POST">
-                <div class="form-group">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="Enter your email" required>
+                <div class="input-group">
+                    <label for="email" class="label">Email Address</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required>
                 </div>
                 
-                <div class="form-group">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-input" placeholder="Enter your password" required>
+                <div class="input-group">
+                    <label for="password" class="label">Password</label>
+                    <input type="password" id="password" name="password" class="input-field" placeholder="Enter your password" required>
                 </div>
                 
-                <div class="form-check" style="justify-content: space-between; margin-bottom: 1.5rem;">
+                <div class="checkbox-group" style="justify-content: space-between; margin-bottom: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <input type="checkbox" id="remember" class="form-check-input">
+                        <input type="checkbox" id="remember" class="checkbox">
                         <label for="remember" style="font-size: 0.9rem;">Remember me</label>
                     </div>
                     <a href="#" class="form-link" style="font-size: 0.9rem;">Forgot password?</a>
                 </div>
                 
-                <button type="submit" class="btn btn-primary btn-full">Login to Account</button>
+                <button type="submit" class="btn btn-orange btn-full">Login to Account</button>
             </form>
             
             <div class="form-footer">
