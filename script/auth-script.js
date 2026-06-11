@@ -13,15 +13,4 @@ window.addEventListener("load", function () {
             authContainer.innerHTML = '<a href="' + loginLink + '" class="btn btn-orange" id="auth-btn">Login &amp; Register</a>';
         }
     }
-
-    // hamburger nav for mobile view
-    var hamburger = document.getElementById("hamburger");
-    var navMenu = document.querySelector("nav ul");
-
-    if (hamburger && navMenu) {
-        hamburger.onclick = function () {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        };
-    }
 });

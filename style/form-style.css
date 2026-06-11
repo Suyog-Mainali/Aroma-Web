@@ -1,4 +1,4 @@
-/* form container */
+
 .form-box {
     max-width: 500px;
     margin: 2rem auto;
@@ -20,7 +20,8 @@
     margin-bottom: 2rem;
 }
 
-.form-header h2 {
+.form-header h2,
+.form-header h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
@@ -51,7 +52,7 @@
     font-size: 0.95rem;
 }
 
-/* inputs */
+
 .input-field, .textarea-field, .dropdown {
     width: 100%;
     padding: 0.8rem 1rem;
@@ -120,14 +121,4 @@
 .form-link:hover {
     color: #f44336;
     text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    .form-row .input-group {
-        margin-bottom: 1.5rem;
-    }
 }

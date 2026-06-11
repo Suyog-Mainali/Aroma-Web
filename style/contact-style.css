@@ -1,4 +1,4 @@
-/* contact layout */
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -6,6 +6,7 @@
     max-width: 1000px;
     margin: 2rem auto;
     text-align: left;
+    align-items: start;
 }
 
 .contact-card {
@@ -25,6 +26,10 @@
     margin-bottom: 1.5rem;
 }
 
+.contact-detail:last-child {
+    margin-bottom: 0;
+}
+
 .contact-detail h4 {
     font-size: 1rem;
     margin-bottom: 0.25rem;
@@ -36,8 +41,87 @@
     font-weight: 500;
 }
 
-@media (max-width: 768px) {
+/* Contact form — overrides form-box grid conflicts */
+.contact-grid .contact-form {
+    max-width: none;
+    margin: 0;
+    width: 100%;
+    padding: 2.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form .form-header {
+    text-align: left;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-form .form-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.contact-form .form-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.contact-form .input-field,
+.contact-form .textarea-field {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.contact-form .input-field::placeholder,
+.contact-form .textarea-field::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.contact-form .input-field:hover,
+.contact-form .textarea-field:hover {
+    border-color: rgba(255, 87, 34, 0.35);
+}
+
+.contact-form .textarea-field {
+    min-height: 140px;
+}
+
+.contact-form .btn-full {
+    margin-top: 0.75rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-grid {
+        margin: 1.5rem auto;
+        gap: 1.5rem;
+    }
+
+    .contact-card,
+    .contact-grid .contact-form {
+        padding: 1.75rem;
+    }
+
+    .contact-form .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-form .form-row .input-group {
+        margin-bottom: 1.5rem;
     }
 }

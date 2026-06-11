@@ -1,7 +1,5 @@
-// stores menu items for filtering
 var allMenuItems = [];
 
-// loads menu when page is ready
 window.addEventListener("load", function () {
     var menuGrid = document.getElementById("menu-grid");
     if (menuGrid) {

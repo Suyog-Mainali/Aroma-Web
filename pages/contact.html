@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AromaWeb - Contact Us</title>
     <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/form-style.css">
     <link rel="stylesheet" href="../style/contact-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -60,9 +61,30 @@
                 </div>
             </div>
             
-            <div class="contact-card">
-                <h3>Send a Message</h3>
-                <p>Form coming soon...</p>
+            <div class="contact-card form-box contact-form">
+                <div class="form-header">
+                    <h3>Send a Message</h3>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                </div>
+                <form action="#" method="POST">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label for="name" class="label">Your Name</label>
+                            <input type="text" id="name" name="name" class="input-field" placeholder="e.g. Jane Smith" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email" class="label">Your Email</label>
+                            <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="message" class="label">Your Message</label>
+                        <textarea id="message" name="message" class="textarea-field" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-orange btn-full">Send Message</button>
+                </form>
             </div>
         </div>
     </main>

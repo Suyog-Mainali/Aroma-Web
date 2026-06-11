@@ -1,4 +1,4 @@
-// user registration
+
 window.addEventListener("load", function () {
     var registerForm = document.querySelector("form");
 
@@ -32,6 +32,18 @@ window.addEventListener("load", function () {
 
             if (emailExists) {
                 alert("An account with this email already exists!");
+                return;
+            }
+            var fullnameExists = false;
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].fullname === fullname) {
+                    fullnameExists = true;
+                    break;
+                }
+            }
+
+            if (fullnameExists) {
+                alert("An account with this fullname already exists!");
                 return;
             }
 
