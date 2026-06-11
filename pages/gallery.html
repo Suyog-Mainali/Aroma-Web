@@ -6,8 +6,229 @@
     <title>AromaWeb - Gallery</title>
     <link rel="stylesheet" href="../style/common-style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ── GALLERY PAGE STYLES ── */
+
+        /* Page Header */
+        .gallery-header {
+            text-align: center;
+            padding: 3rem 6% 2rem;
+        }
+        .gallery-header .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .gallery-header .page-title span {
+            color: var(--primary-color);
+        }
+        .gallery-header .page-subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Filter Bar */
+        .gallery-filter-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            padding: 0 6% 2.5rem;
+        }
+        .filter-btn {
+            padding: 0.5rem 1.3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 87, 34, 0.35);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Gallery Section Wrapper */
+        .gallery-section {
+            padding: 0 6% 5rem;
+        }
+
+        /* Section Label */
+        .section-label {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid rgba(255, 87, 34, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+
+        /* Gallery Card */
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 87, 34, 0.4);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Dish Info */
+        .dish-info {
+            padding: 1rem 1.1rem 1.1rem;
+        }
+        .dish-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.3rem;
+        }
+        .dish-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .dish-tag {
+            display: inline-block;
+            margin-top: 0.6rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .tag-dish  { background: rgba(255, 87, 34, 0.12); color: var(--primary-color); }
+        .tag-drink { background: rgba(29, 158, 117, 0.12); color: #1d9e75; }
+        .tag-bev   { background: rgba(100, 90, 220, 0.12); color: #9a93f0; }
+        .tag-juice { background: rgba(99, 153, 34, 0.12);  color: #8dc844; }
+        .tag-combo { background: rgba(255, 87, 34, 0.08);  color: #ffab91; border: 1px solid rgba(255,87,34,0.2); }
+
+        /* Hidden */
+        .gallery-item.hidden { display: none; }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox-inner {
+            position: relative;
+            max-width: 700px;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 87, 34, 0.25);
+            backdrop-filter: blur(10px);
+        }
+        .lightbox-inner img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+        .lightbox-body {
+            padding: 1.2rem 1.5rem 1.5rem;
+        }
+        .lightbox-body h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 0.4rem;
+        }
+        .lightbox-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 12px; right: 14px;
+            background: rgba(18, 18, 18, 0.75);
+            border: 1px solid rgba(255, 87, 34, 0.3);
+            color: var(--text-light);
+            font-size: 1rem;
+            width: 34px; height: 34px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 10;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+                gap: 1rem;
+            }
+            .gallery-item img { height: 155px; }
+            .gallery-header .page-title { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
+
+    <!-- NAVBAR -->
     <header class="navbar">
         <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
         <nav>
@@ -31,10 +252,467 @@
         </div>
     </header>
 
+    <!-- MAIN CONTENT -->
     <main class="page-container">
-        <h2 class="page-title">Image Gallery</h2>
-        <p class="page-subtitle">Restaurant photos coming soon...</p>
-    </main>
+
+        <!-- Page Header -->
+        <div class="gallery-header">
+            <h2 class="page-title">Our <span>Gallery</span></h2>
+            <p class="page-subtitle">Authentic Nepali flavours — from hearty meals to refreshing sips</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="gallery-filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="dish">Nepali Dishes</button>
+            <button class="filter-btn" data-filter="drink">Cold Drinks</button>
+            <button class="filter-btn" data-filter="bev">Beverages</button>
+            <button class="filter-btn" data-filter="juice">Juices</button>
+            <button class="filter-btn" data-filter="combo">Combo Sets</button>
+        </div>
+
+        <!-- Gallery Content -->
+        <div class="gallery-section">
+
+            <!-- ── NEPALI DISHES ── -->
+            <div class="section-label" id="label-dish">Nepali Dishes</div>
+            <div class="gallery-grid" id="grid-dish">
+
+                <div class="gallery-item" data-cat="dish" data-name="Dal Bhat" data-desc="The heart of Nepali cuisine — lentil soup served with steamed rice, seasonal vegetables, and achaar.">
+                    <img src="https://thumbs.dreamstime.com/b/delicious-nepali-dal-bhat-set-lentil-soup-nepal-food-photography-traditional-cuisine-close-up-cultural-experience-explore-361585709.jpg?w=600&q=80" alt="Dal Bhat">
+                    <div class="dish-info">
+                        <div class="dish-name">Dal Bhat</div>
+                        <div class="dish-desc">Lentil soup, rice, vegetables & achaar</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Momo" data-desc="Steamed or fried dumplings stuffed with spiced minced meat or vegetables, served with tomato chutney.">
+                    <img src="https://thetasteofsikkim.github.io/img/food_menu/Dumplings/Jhol%20Momo.jpg" alt="Momo">
+                    <div class="dish-info">
+                        <div class="dish-name">Momo</div>
+                        <div class="dish-desc">Steamed dumplings with spiced filling</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Thukpa" data-desc="Hearty Tibetan-Nepali noodle soup loaded with vegetables or meat in a rich, spiced broth.">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.RmvYwpkyRri7rtipwg_czgHaFj?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Thukpa">
+                    <div class="dish-info">
+                        <div class="dish-name">Thukpa</div>
+                        <div class="dish-desc">Tibetan-style noodle soup</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Sel Roti" data-desc="Traditional Nepali rice-flour donut, crispy outside and soft inside, a festival favourite.">
+                    <img src="https://washburnreview.org/wp-content/uploads/2023/03/sel-roti.jpeg" alt="Sel Roti">
+                    <div class="dish-info">
+                        <div class="dish-name">Sel Roti</div>
+                        <div class="dish-desc">Crispy rice-flour ring bread</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Gundruk Ko Achar" data-desc="Fermented leafy greens tossed with mustard oil, chillies, and spices — a Nepali staple side dish.">
+                    <img src="https://cdn.stunningnepal.com/wp-content/uploads/2019/11/Soybean-and-Gundruk-Sadheko.jpg" alt="Gundruk">
+                    <div class="dish-info">
+                        <div class="dish-name">Gundruk Ko Achar</div>
+                        <div class="dish-desc">Fermented greens pickle</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Dhido" data-desc="Traditional buckwheat or millet porridge, a rustic Nepali staple often served with gundruk soup.">
+                    <img src="https://vanshaghar.s3.me-central-1.amazonaws.com/payload/dhido.jpg" alt="Dhido">
+                    <div class="dish-info">
+                        <div class="dish-name">Dhido</div>
+                        <div class="dish-desc">Buckwheat porridge with gundruk soup</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Choila" data-desc="Spicy grilled buffalo meat marinated with mustard oil, garlic, ginger, and Newari spices.">
+                    <img src="https://boondockingrecipes.com/wp-content/uploads/2025/03/21.-Nepal-Newari-Buff-Choila-Recipe-2.jpg" alt="Choila">
+                    <div class="dish-info">
+                        <div class="dish-name">Choila</div>
+                        <div class="dish-desc">Spicy grilled Newari buffalo meat</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Wo (Bara)" data-desc="Newari lentil pancake, crispy and savoury, often topped with egg or minced meat.">
+                    <img src="https://www.muncha.com/img/l93091.jpg" alt="Bara">
+                    <div class="dish-info">
+                        <div class="dish-name">Wo (Bara)</div>
+                        <div class="dish-desc">Newari lentil pancake</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Yomari" data-desc="Sweet steamed rice-flour dumpling filled with chaku (molasses and sesame), a Newar delicacy.">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.g5V6KxJnzkp25zBzAlT8xwHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Yomari">
+                    <div class="dish-info">
+                        <div class="dish-name">Yomari</div>
+                        <div class="dish-desc">Sweet steamed rice dumpling</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Kwati" data-desc="A wholesome nine-bean soup slow-cooked with spices, traditionally eaten during Janai Purnima.">
+                    <img src="https://s.greattibettour.com/photos/2021/07/kwati-12-46570.jpg" alt="Kwati">
+                    <div class="dish-info">
+                        <div class="dish-name">Kwati</div>
+                        <div class="dish-desc">Nine-bean ceremonial soup</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Aloo Tama" data-desc="Tangy bamboo shoot and potato curry cooked with black-eyed beans — a classic Newar comfort dish.">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.Q4uwT-OGUhYlswAOiFOZRwHaHa?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Aloo Tama">
+                    <div class="dish-info">
+                        <div class="dish-name">Aloo Tama</div>
+                        <div class="dish-desc">Bamboo shoot & potato curry</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Sukuti Sadeko" data-desc="Dried and spiced smoked meat salad tossed with sesame, chillies, and mustard oil.">
+                    <img src="https://junifoods.com/wp-content/uploads/2023/08/Sukuti-Sadheko.jpg" alt="Sukuti">
+                    <div class="dish-info">
+                        <div class="dish-name">Sukuti Sadeko</div>
+                        <div class="dish-desc">Spiced smoked meat salad</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Samay Baji" data-desc="Traditional Newari platter — beaten rice, bara, choila, eggs, pickles and more.">
+                    <img src="https://i.pinimg.com/736x/e2/bb/e4/e2bbe404b1f42d76a0d347d5af81de99.jpg" alt="Samay Baji">
+                    <div class="dish-info">
+                        <div class="dish-name">Samay Baji</div>
+                        <div class="dish-desc">Traditional Newari ceremonial platter</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Tarkari Bhaat" data-desc="Mixed vegetable curry served over fluffy steamed basmati rice with homemade pickle.">
+                    <img src="https://thumbs.dreamstime.com/b/delicious-nepali-food-dal-bhaat-tarkari-plate-rice-vegetables-meat-salad-delicious-nepali-food-dal-bhaat-tarkari-plate-279649109.jpg" alt="Tarkari Bhaat">
+                    <div class="dish-info">
+                        <div class="dish-name">Tarkari Bhaat</div>
+                        <div class="dish-desc">Mixed vegetable curry with rice</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Fried Momo" data-desc="Golden crispy fried dumplings stuffed with spiced chicken, served with signature dipping sauce.">
+                    <img src="https://billusfood.com/wp-content/uploads/2025/02/fried-momos.jpeg" alt="Fried Momo">
+                    <div class="dish-info">
+                        <div class="dish-name">Fried Momo</div>
+                        <div class="dish-desc">Crispy dumplings with dipping sauce</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Chatamari" data-desc="The Nepali pizza — thin rice-flour crepe topped with minced meat, egg, and spices.">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.XDc48lrLYFyBxGfBF5X4AQHaEK?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Chatamari">
+                    <div class="dish-info">
+                        <div class="dish-name">Chatamari</div>
+                        <div class="dish-desc">Nepali rice-flour crepe pizza</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Masala Chicken" data-desc="Tender chicken slow-cooked in aromatic Nepali spices and tomato-onion gravy.">
+                    <img src="https://i.pinimg.com/originals/74/23/c0/7423c03fa94719826e270ef5e291e880.jpg" alt="Masala Chicken">
+                    <div class="dish-info">
+                        <div class="dish-name">Masala Chicken</div>
+                        <div class="dish-desc">Aromatic Nepali chicken curry</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Vegetable Pulao" data-desc="Fragrant saffron and whole-spice rice cooked with seasonal vegetables and ghee.">
+                    <img src="https://th.bing.com/th/id/R.f473f25b192b553c858844ae2697e1f0?rik=XvotbSc0voPrTg&pid=ImgRaw&r=0" alt="Pulao">
+                    <div class="dish-info">
+                        <div class="dish-name">Vegetable Pulao</div>
+                        <div class="dish-desc">Saffron spiced vegetable rice</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Naan with Dal Makhani" data-desc="Soft tandoor-baked naan bread paired with rich creamy dal makhani curry.">
+                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/seabass-coconut-curry-paratha-1613479134.jpg?crop=1xw:1xh;center,top&resize=640:*" alt="Naan Curry">
+                    <div class="dish-info">
+                        <div class="dish-name">Naan with Dal Makhani</div>
+                        <div class="dish-desc">Tandoor naan & creamy lentil curry</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="dish" data-name="Kheer" data-desc="Creamy rice pudding simmered in full-fat milk with cardamom, saffron, and pistachios.">
+                    <img src="https://sodelicious.recipes/wp-content/uploads/2018/07/21-11-2017-R3-NS-chefs-var2-Almond-and-Pistachio-Rice-Pudding-e1533034412964-700x524.jpg" alt="Kheer">
+                    <div class="dish-info">
+                        <div class="dish-name">Kheer</div>
+                        <div class="dish-desc">Cardamom & saffron rice pudding</div>
+                        <span class="dish-tag tag-dish">Dish</span>
+                    </div>
+                </div>
+
+            </div><!-- /grid-dish -->
+
+            <!-- ── COLD DRINKS ── -->
+            <div class="section-label" id="label-drink">Cold Drinks</div>
+            <div class="gallery-grid" id="grid-drink">
+
+                <div class="gallery-item" data-cat="drink" data-name="Masala Cold Soda" data-desc="Chilled sparkling soda infused with homemade masala syrup, black salt, and mint.">
+                    <img src="https://feeds.abplive.com/onecms/images/uploaded-images/2021/08/18/a66b49017b8a0c467a759d66ce2ca1a7_original.jpg?impolicy=abp_cdn&imwidth=1200&imheight=628" alt="Masala Soda">
+                    <div class="dish-info">
+                        <div class="dish-name">Masala Cold Soda</div>
+                        <div class="dish-desc">Sparkling soda with spice & mint</div>
+                        <span class="dish-tag tag-drink">Cold Drink</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="drink" data-name="Rose Sharbat" data-desc="Chilled rose-water syrup with basil seeds and ice — a cooling floral refresher.">
+                    <img src="https://images.slurrp.com/prod/articles/115djolmviid.webp?impolicy=slurrp-20210601&width=1200&height=900&q=75" alt="Rose Sharbat">
+                    <div class="dish-info">
+                        <div class="dish-name">Rose Sharbat</div>
+                        <div class="dish-desc">Floral rose drink with basil seeds</div>
+                        <span class="dish-tag tag-drink">Cold Drink</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="drink" data-name="Aam Panna" data-desc="Tangy raw mango cooler with cumin, black salt, and mint — a summer essential.">
+                    <img src="https://pipingpotcurry.com/wp-content/uploads/2023/05/Aam-panna-recipe-Piping-Pot-Curry.jpg" alt="Aam Panna">
+                    <div class="dish-info">
+                        <div class="dish-name">Aam Panna</div>
+                        <div class="dish-desc">Raw mango cooler with cumin</div>
+                        <span class="dish-tag tag-drink">Cold Drink</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="drink" data-name="Cold Brew Coffee" data-desc="Smooth 12-hour cold-brewed coffee served over ice with a hint of cardamom.">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.uXTec3o7eBuzzFnX2CBpswHaLH?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Cold Brew">
+                    <div class="dish-info">
+                        <div class="dish-name">Cold Brew Coffee</div>
+                        <div class="dish-desc">12-hour cold brew with cardamom</div>
+                        <span class="dish-tag tag-drink">Cold Drink</span>
+                    </div>
+                </div>
+
+            </div><!-- /grid-drink -->
+
+            <!-- ── BEVERAGES ── -->
+            <div class="section-label" id="label-bev">Beverages</div>
+            <div class="gallery-grid" id="grid-bev">
+
+                <div class="gallery-item" data-cat="bev" data-name="Masala Chiya" data-desc="Traditional Nepali spiced milk tea brewed with ginger, cardamom, cinnamon, and cloves.">
+                    <img src="https://junifoods.com/wp-content/uploads/2022/12/Nepali-Masala-Tea-Chiya-%E0%A4%A8%E0%A5%87%E0%A4%AA%E0%A4%BE%E0%A4%B2%E0%A5%80-%E0%A4%9A%E0%A4%BF%E0%A4%AF%E0%A4%BE-720x960.jpg" alt="Masala Chiya">
+                    <div class="dish-info">
+                        <div class="dish-name">Masala Chiya</div>
+                        <div class="dish-desc">Traditional Nepali spiced milk tea</div>
+                        <span class="dish-tag tag-bev">Beverage</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="bev" data-name="Butter Tea (Suja)" data-desc="Himalayan yak butter tea — rich, salty, and warming, a staple of mountain communities.">
+                    <img src="https://b.zmtcdn.com/data/pictures/chains/1/19975241/8625b91e500dd424fa306f588f5c3c04.png" alt="Butter Tea">
+                    <div class="dish-info">
+                        <div class="dish-name">Butter Tea (Suja)</div>
+                        <div class="dish-desc">Himalayan yak butter salt tea</div>
+                        <span class="dish-tag tag-bev">Beverage</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="bev" data-name="Tongba" data-desc="Fermented millet beer from eastern Nepal, served warm in a wooden vessel with bamboo straw.">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.8hnoaq4LzocuJMKiYR2uKAHaFj?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Tongba">
+                    <div class="dish-info">
+                        <div class="dish-name">Tongba</div>
+                        <div class="dish-desc">Fermented millet beer, eastern Nepal</div>
+                        <span class="dish-tag tag-bev">Beverage</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="bev" data-name="Lassi" data-desc="Thick blended yoghurt drink available plain, sweet, salted, or mango flavoured.">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.Np28IpNh1lTHwyhrY0eAAQHaHa?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Lassi">
+                    <div class="dish-info">
+                        <div class="dish-name">Lassi</div>
+                        <div class="dish-desc">Thick yoghurt drink — sweet or salted</div>
+                        <span class="dish-tag tag-bev">Beverage</span>
+                    </div>
+                </div>
+
+            </div><!-- /grid-bev -->
+
+            <!-- ── FRESH JUICES ── -->
+            <div class="section-label" id="label-juice">Fresh Juices</div>
+            <div class="gallery-grid" id="grid-juice">
+
+                <div class="gallery-item" data-cat="juice" data-name="Watermelon Juice" data-desc="Freshly pressed watermelon blended with a squeeze of lime and a pinch of black salt.">
+                    <img src="https://insanelygoodrecipes.com/wp-content/uploads/2022/10/Refreshing-Watermelon-Smoothie-in-a-Glass-768x1152.jpg" alt="Watermelon Juice">
+                    <div class="dish-info">
+                        <div class="dish-name">Watermelon Juice</div>
+                        <div class="dish-desc">Fresh watermelon with lime</div>
+                        <span class="dish-tag tag-juice">Juice</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="juice" data-name="Sugarcane Juice" data-desc="Freshly extracted sugarcane juice with ginger and lemon — cold-pressed and served chilled.">
+                    <img src="https://blog.lecturehome.com/img/sugarcane-juice.png" alt="Sugarcane Juice">
+                    <div class="dish-info">
+                        <div class="dish-name">Sugarcane Juice</div>
+                        <div class="dish-desc">Cold-pressed cane with ginger & lemon</div>
+                        <span class="dish-tag tag-juice">Juice</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="juice" data-name="Mango Smoothie" data-desc="Thick Alphonso mango blended with chilled yoghurt and honey — a tropical classic.">
+                    <img src="https://wholesomemadeeasy.com/wp-content/uploads/2021/07/Mango-Smoothie-21.jpg" alt="Mango Smoothie">
+                    <div class="dish-info">
+                        <div class="dish-name">Mango Smoothie</div>
+                        <div class="dish-desc">Alphonso mango, yoghurt & honey</div>
+                        <span class="dish-tag tag-juice">Juice</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="juice" data-name="Beetroot Carrot Juice" data-desc="Earthy beetroot and carrot blended with apple and a sliver of ginger.">
+                    <img src="https://kj1bcdn.b-cdn.net/media/87645/beetroot-and-carrot-juice.jpg" alt="Beetroot Juice">
+                    <div class="dish-info">
+                        <div class="dish-name">Beetroot Carrot Juice</div>
+                        <div class="dish-desc">Beetroot, carrot, apple & ginger</div>
+                        <span class="dish-tag tag-juice">Juice</span>
+                    </div>
+                </div>
+
+            </div><!-- /grid-juice -->
+
+            <!-- ── COMBO SETS ── -->
+            <div class="section-label" id="label-combo">Combo Sets</div>
+            <div class="gallery-grid" id="grid-combo">
+
+                <div class="gallery-item" data-cat="combo" data-name="Dal Bhat Combo" data-desc="Full Dal Bhat thali + 2 Momo + 1 glass Masala Chiya. The ultimate Nepali meal deal.">
+                    <img src="https://media.istockphoto.com/id/1487545878/photo/nepali-dal-bhaat-tarkari-traditional-nepali-thali-with-rice-lentil-curry-and-vegetables.jpg?s=612x612&w=0&k=20&c=FkCBxVAh0CMo9-D4UML5C-HKcfMRkSiTRvZPc21hxPQ=" alt="Dal Bhat Combo">
+                    <div class="dish-info">
+                        <div class="dish-name">Dal Bhat Combo</div>
+                        <div class="dish-desc">Thali + Momo + Masala Chiya</div>
+                        <span class="dish-tag tag-combo">Combo Set</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="combo" data-name="Momo Party Set" data-desc="20 pcs mixed Momo (steam + fry) with 2 dipping sauces and 2 cold drinks. Serves 2.">
+                    <img src="https://femina.wwmindia.com/content/2022/mar/momos-011646367565.jpg" alt="Momo Party Set">
+                    <div class="dish-info">
+                        <div class="dish-name">Momo Party Set</div>
+                        <div class="dish-desc">20 pcs Momo + 2 sauces + 2 drinks</div>
+                        <span class="dish-tag tag-combo">Combo Set</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="combo" data-name="Newari Feast" data-desc="Choila, Bara, Chatamari, Aloo Tama, and Tongba — the full Newar cultural platter.">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.hJVSh8VakPoHGh5mREXpzgHaFL?cb=thfvnextfalcon2&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Newari Feast">
+                    <div class="dish-info">
+                        <div class="dish-name">Newari Feast</div>
+                        <div class="dish-desc">Choila, Bara, Chatamari & Tongba</div>
+                        <span class="dish-tag tag-combo">Combo Set</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-cat="combo" data-name="Refreshment Bundle" data-desc="Choice of any juice + 1 snack (Sel Roti or Samay Baji) — perfect afternoon pick-me-up.">
+                    <img src="https://images.pexels.com/photos/793772/pexels-photo-793772.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Refreshment Bundle">
+                    <div class="dish-info">
+                        <div class="dish-name">Refreshment Bundle</div>
+                        <div class="dish-desc">Any juice + Sel Roti or Samay Baji</div>
+                        <span class="dish-tag tag-combo">Combo Set</span>
+                    </div>
+                </div>
+
+            </div><!-- /grid-combo -->
+
+        </div><!-- /gallery-section -->
+
+    </main><!-- /page-container -->
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-inner">
+            <button class="lightbox-close" id="lightbox-close">✕</button>
+            <img id="lb-img" src="" alt="">
+            <div class="lightbox-body">
+                <h3 id="lb-name"></h3>
+                <p id="lb-desc"></p>
+            </div>
+        </div>
+    </div>
+
     <script src="../script/auth-script.js"></script>
+
+    <script>
+        /* ── HAMBURGER TOGGLE ── */
+        const hamburger = document.getElementById('hamburger');
+        const navMenu   = document.querySelector('nav ul');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        /* ── FILTER ── */
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allItems   = document.querySelectorAll('.gallery-item');
+        const sections   = {
+            dish:  { grid: document.getElementById('grid-dish'),  label: document.getElementById('label-dish')  },
+            drink: { grid: document.getElementById('grid-drink'), label: document.getElementById('label-drink') },
+            bev:   { grid: document.getElementById('grid-bev'),   label: document.getElementById('label-bev')   },
+            juice: { grid: document.getElementById('grid-juice'), label: document.getElementById('label-juice') },
+            combo: { grid: document.getElementById('grid-combo'), label: document.getElementById('label-combo') },
+        };
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const f = btn.dataset.filter;
+
+                allItems.forEach(item => {
+                    item.classList.toggle('hidden', f !== 'all' && item.dataset.cat !== f);
+                });
+
+                Object.entries(sections).forEach(([cat, els]) => {
+                    const show = f === 'all' || f === cat;
+                    els.grid.style.display  = show ? 'grid'  : 'none';
+                    els.label.style.display = show ? 'flex'  : 'none';
+                });
+            });
+        });
+
+        /* ── LIGHTBOX ── */
+        const lightbox = document.getElementById('lightbox');
+        const lbImg    = document.getElementById('lb-img');
+        const lbName   = document.getElementById('lb-name');
+        const lbDesc   = document.getElementById('lb-desc');
+
+        allItems.forEach(item => {
+            item.addEventListener('click', () => {
+                lbImg.src            = item.querySelector('img').src;
+                lbImg.alt            = item.dataset.name;
+                lbName.textContent   = item.dataset.name;
+                lbDesc.textContent   = item.dataset.desc;
+                lightbox.classList.add('open');
+            });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', () => {
+            lightbox.classList.remove('open');
+        });
+        lightbox.addEventListener('click', e => {
+            if (e.target === lightbox) lightbox.classList.remove('open');
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') lightbox.classList.remove('open');
+        });
+    </script>
+    <footer style="text-align: center">
+        <h1>Thank you</h1>
+    </footer>
+
 </body>
 </html>
