@@ -23,11 +23,6 @@
                 <li><a href="contact.html" class="active">Contact Us</a></li>
             </ul>
         </nav>
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
         <div class="auth-buttons" id="auth-buttons">
         </div>
     </header>
@@ -42,7 +37,7 @@
                 
                 <div class="contact-detail">
                     <h4>Phone Number</h4>
-                    <p>(905) 555-0198</p>
+                    <p>(+997) 9876557273</p>
                 </div>
                 
                 <div class="contact-detail">
@@ -52,7 +47,7 @@
                 
                 <div class="contact-detail">
                     <h4>Main Location</h4>
-                    <p>123 Culinary Ave<br>Oshawa, ON L1H 7K4</p>
+                    <p>123 Culinary Ave<br>Kathmandu, Balaju</p>
                 </div>
                 
                 <div class="contact-detail">
@@ -83,11 +78,18 @@
                         <textarea id="message" name="message" class="textarea-field" placeholder="Write your message here..." required></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-orange btn-full">Send Message</button>
+                    <button onclick="alertAndRedirect(event)" class="btn btn-orange btn-full">Send Message</button>
                 </form>
             </div>
         </div>
     </main>
     <script src="../script/auth-script.js"></script>
+    <script>
+            function alertAndRedirect(event) {
+                event.preventDefault();
+                alert("This is a demo contact form. In a real application, this would send your message to the server.");
+                window.location.href = "../index.html";
+            }
+    </script>
 </body>
 </html>
