@@ -39,3 +39,10 @@ Diet: Vegetarian
 Spice: Mild
 Price: $4.99
 Description: Refreshing yogurt drink blended with sweet mango pulp.
+
+Title: Big Momo
+Category: Main Course
+Diet: Non-Vegetarian
+Spice: Mild
+Price: $10.99
+Description: Big Momos !!!!!
