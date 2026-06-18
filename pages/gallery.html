@@ -641,7 +641,7 @@
     <script src="../script/auth-script.js"></script>
 
     <script>
-        /* ── HAMBURGER TOGGLE ── */
+       
         const hamburger = document.getElementById('hamburger');
         const navMenu   = document.querySelector('nav ul');
         hamburger.addEventListener('click', () => {
@@ -649,11 +649,11 @@
             navMenu.classList.toggle('active');
         });
 
-        /* ── FILTER ── */
+/* ── FILTER ── */
         const filterBtns = document.querySelectorAll('.filter-btn');
         const allItems   = document.querySelectorAll('.gallery-item');
         const sections   = {
-            dish:  { grid: document.getElementById('grid-dish'),  label: document.getElementById('label-dish')  },
+            dish:  { grid: document.getElementById('grid-dish'),  label:         document.getElementById('label-dish')  },
             drink: { grid: document.getElementById('grid-drink'), label: document.getElementById('label-drink') },
             bev:   { grid: document.getElementById('grid-bev'),   label: document.getElementById('label-bev')   },
             juice: { grid: document.getElementById('grid-juice'), label: document.getElementById('label-juice') },
