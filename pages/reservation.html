@@ -41,18 +41,18 @@
                     </div>
                     <div class="input-group">
                         <label for="phone" class="label">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="input-field" placeholder="e.g. (123) 456-7890" required>
+                        <input type="tel" id="phone" name="phone" class="input-field" placeholder="e.g. (+997) 9876557273" pattern="\d{10}" title="Please enter a valid 10-digit phone number" required>
                     </div>
                 </div>
                 
                 <div class="form-row">
                     <div class="input-group">
                         <label for="date" class="label">Reservation Date</label>
-                        <input type="date" id="date" name="date" class="input-field" required>
+                        <input type="date" id="date" name="date" class="input-field" min="2026-06-01" max="2067-06-07" required>
                     </div>
                     <div class="input-group">
                         <label for="time" class="label">Reservation Time</label>
-                        <input type="time" id="time" name="time" class="input-field" required>
+                        <input type="time" id="time" name="time" class="input-field" min="11:00" max="22:00" required>
                     </div>
                 </div>
 
@@ -79,16 +79,32 @@
                         </select>
                     </div>
                 </div>
-                
-                <div class="input-group">
-                    <label for="requests" class="label">Special Requests (Optional)</label>
-                    <textarea id="requests" name="requests" class="textarea-field" placeholder="Any dietary restrictions, seating preferences, or special occasions?"></textarea>
+                    <div class="input-group">
+                        <label for="branches" class="label">Branch Location</label>
+                        <select id="branches" name="branches" class="dropdown" required>
+                            <option value="1" selected>Branches</option>
+                            <option value="2">Kathmandu,New Baneshwor</option>
+                            <option value="3">Pokhara, Lakeside</option>
+                            <option value="4">Chitwan, Bhartapur</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label for="requests" class="label">Special Requests (Optional)</label>
+                        <textarea id="requests" name="requests" class="textarea-field" placeholder="Any dietary restrictions, seating preferences, or special occasions?"></textarea>
+                    </div>
+                    <button onclick="alertAndRedirect(event)"class="btn btn-orange btn-full">Confirm Reservation</button>
                 </div>
-                
-                <button type="submit" class="btn btn-orange btn-full">Confirm Reservation</button>
             </form>
         </div>
     </main>
     <script src="../script/auth-script.js"></script>
+    <script>
+
+            function alertAndRedirect(event) {
+                event.preventDefault();
+            alert("This is a demo reservation form. In a real application, this would submit the reservation details to the server.");
+            window.location.href = "gallery.html";
+            }
+    </script>
 </body>
 </html>

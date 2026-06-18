@@ -28,4 +28,27 @@ window.addEventListener("load", function () {
             }
         };
     }
+    var forgotLink = document.getElementById("forgot-password-link");
+
+    if (forgotLink) {
+        forgotLink.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            var email = document.getElementById("email").value.trim();
+            if (!email) {
+                alert("Please enter your email address first.");
+                return;
+            }
+
+            var usersData = localStorage.getItem("aroma_users");
+            var users = usersData ? JSON.parse(usersData) : [];
+            var user = users.find(function (u) { return u.email === email; });
+
+            if (user) {
+                alert("Your password is: " + user.password);
+            } else {
+                alert("No account found for that email.");
+            }
+        });
+    }
 });
