@@ -1,0 +1,182 @@
+
+        .box {
+
+
+            justify-content: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .location-card {
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            width: 300px;
+            padding: 24px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px -3px rgba(249, 255, 255, 0.1), 0 4px 6px -2px rgba(248, 250, 250, 0.05);
+        }
+
+        .card-header {
+            color: var(--text-main);
+            background: #ff5722;
+            border: 1px solid #c3f0e1;
+            border-radius: 20px;
+            padding: 30px;
+            transition: .3s;
+        }
+
+        .pin {
+            font-size: 1.2rem;
+        }
+
+        .area {
+            font-size: 1.2rem;
+            color: #ff5722;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .info-row {
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            font-size: 1.2rem;
+        }
+
+        .details-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #ff5722;
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s ease;
+        }
+
+        .page-title {
+            text-align: center;
+            padding: 100px 20px 60px;
+            font-size: px;
+        }
+
+        .page-description {
+            text-align: center;
+            font-size: 24px;
+            color: #f3eeee;
+            margin-bottom: 40px;
+        }
+
+        .features {
+            max-width: 1200px;
+            margin: auto;
+            padding: 50px 10px;
+        }
+
+        .sectiontitle {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .featuregrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .featurecard :hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 15px -3px rgba(249, 255, 255, 0.1), 0 4px 6px -2px rgba(248, 250, 250, 0.05);
+        }
+
+        .featurebox {
+            background: #ff5722;
+            padding: 35px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .featurebox i {
+            font-size: 40px;
+            color: #ff5722;
+            margin-bottom: 15px;
+        }
+
+        .featurebox h4 {
+            margin-bottom: 10px;
+        }
+
+        .status {
+            max-width: 1200px;
+            margin: 70px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+
+        }
+
+        .statbox {
+            background: #ff5722;
+            text-align: center;
+            padding: 35px;
+            border-radius: 20px;
+
+        }
+
+        .maps {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .map-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        .contact-branches {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .contact-branches p {
+            margin-top: 15px;
+            color: #bdbdbd;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .foot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
