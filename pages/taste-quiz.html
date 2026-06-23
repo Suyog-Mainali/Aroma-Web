@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AromaWeb - Taste Matcher</title>
+    <link rel="stylesheet" href="../style/common-style.css">
+    <link rel="stylesheet" href="../style/taste-quiz.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+ 
+    <header class="navbar">
+        <a href="../index.html" class="logo" style="text-decoration: none; color: inherit;">AromaWeb</a>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="taste-quiz.html" class="active">Taste Quiz</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="branches.html">Branches</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons"></div>
+    </header>
+ 
+    <main class="page-container" style="text-align: center;">
+        <h2 class="page-title">Find Your <span style="color: var(--primary-color);">Perfect Dish</span></h2>
+        <p class="page-subtitle">Answer 5 quick questions — we'll match you to one of 20 dishes from our menu</p>
+ 
+        <div class="quiz-wrapper">
+            <div class="quiz-card">
+ 
+                <div class="quiz-progress" id="quizProgress">
+                    <div class="quiz-progress-dot"></div>
+                    <div class="quiz-progress-dot"></div>
+                    <div class="quiz-progress-dot"></div>
+                    <div class="quiz-progress-dot"></div>
+                    <div class="quiz-progress-dot"></div>
+                </div>
+ 
+                <div class="quiz-questions" id="quizQuestions">
+                    <div class="quiz-question" id="quizQuestionText"></div>
+                    <div class="quiz-options" id="quizOptions"></div>
+                </div>
+ 
+                <div class="quiz-result" id="quizResult">
+                    <div class="quiz-result-label">Your Match Is</div>
+                    <div class="quiz-result-dish" id="resultDishName"></div>
+                    <img class="quiz-result-img" id="resultDishImg" src="" alt="">
+                    <p class="quiz-result-desc" id="resultDishDesc"></p>
+                    <div class="quiz-result-actions">
+                        <a href="menu.html" class="btn btn-primary">View Full Menu</a>
+                        <button class="btn btn-outline" id="retakeBtn">Retake Quiz</button>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+    </main>
+ 
+    <script src="../script/auth-script.js"></script>
+    <script src="../script/taste-quiz.js"></script>
+ 
+</body>
+</html>

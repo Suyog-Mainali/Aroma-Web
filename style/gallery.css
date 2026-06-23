@@ -107,7 +107,7 @@
             transform: scale(1.05);
         }
 
-        /* Dish Info */
+        
         .dish-info {
             padding: 1rem 1.1rem 1.1rem;
         }
@@ -132,11 +132,7 @@
             letter-spacing: 0.04em;
             text-transform: uppercase;
         }
-        .tag-dish  { background: rgba(255, 87, 34, 0.12); color: var(--primary-color); }
-        .tag-drink { background: rgba(29, 158, 117, 0.12); color: #1d9e75; }
-        .tag-bev   { background: rgba(100, 90, 220, 0.12); color: #9a93f0; }
-        .tag-juice { background: rgba(99, 153, 34, 0.12);  color: #8dc844; }
-        .tag-combo { background: rgba(255, 87, 34, 0.08);  color: #ffab91; border: 1px solid rgba(255,87,34,0.2); }
+      
 
         /* Hidden */
         .gallery-item.hidden { display: none; }
