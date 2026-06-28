@@ -7,8 +7,8 @@
     <meta name="description" content="AromaWeb - Authentic home-cooked meals delivered right to your doorstep.">
     <link rel="stylesheet" href="style/common-style.css">
     <link rel="stylesheet" href="style/index-style.css">
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/owl-carousel/owl.theme.default.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -22,7 +22,7 @@
                 <li><a href="pages/menu.html">Menu</a></li>
                 <li><a href="pages/reservation.html">Reservation</a></li>
                 <li><a href="pages/gallery.html">Gallery</a></li>
-                <li><a href="taste-quiz.html">Taste Quiz</a></li>
+                <li><a href="pages/taste-quiz.html">Taste Quiz</a></li>
                 <li><a href="pages/about.html">About Us</a></li>
                 <li><a href="pages/branches.html">Branches</a></li>
                 <li><a href="pages/contact.html">Contact Us</a></li>
@@ -56,7 +56,23 @@
         </div>
     </main>
     <script src="script/auth-script.js"></script>
-    <script src="script/img-slider-script.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="assets/owl-carousel/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel({
+                items: 2,
+                loop: true,
+                margin: 20,
+                nav: false,
+                autoplay: true,
+                autoplayTimeout: 2000,
+                fluidSpeed: 500,
+                autoplaySpeed: 500,
+                smartSpeed: 500,
+                dots: true
+            });
+        });
+    </script>
 </body>
 </html>

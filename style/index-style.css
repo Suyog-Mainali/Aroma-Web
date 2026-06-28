@@ -1,21 +1,18 @@
-
 .hero {
     min-height: calc(100vh - 88px);
+    width: 100%; 
+    box-sizing: border-box; 
     background: linear-gradient(105deg, rgba(18, 18, 18, 0.95) 0%, rgba(18, 18, 18, 0.8) 45%, rgba(18,18,18,0.3) 100%), url('../assets/hero_bg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 0 6%;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    padding: 6rem 6% 4rem 6%;
     position: relative;
-}
-
-.hero-text {
-    max-width: 650px;
-    z-index: 10;
-    animation: fadeIn 1s ease-out forwards;
+    gap: 3rem;
 }
 
 @keyframes fadeIn {
@@ -45,4 +42,26 @@
 .btn-large {
     padding: 1rem 2.5rem;
     font-size: 1.05rem;
+}
+.owl-carousel {  
+    width: 100%; 
+    max-width: 1200px; 
+    margin: 40px auto 0; 
+    z-index: 10;
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+.owl-theme .owl-dots .owl-dot span {
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background: var(--primary-color) !important;
 }
