@@ -9,15 +9,16 @@ window.addEventListener("load", function () {
 
 // fetches menu data from text file
 function loadMenu() {
-    fetch("../assets/menu_data/menu.txt")
+    fetch("../assets/menu_data/menu.json")
         .then(function (response) {
             if (!response.ok) {
                 throw new Error("Failed to load menu file.");
             }
-            return response.text();
+            return response.json();
         })
-        .then(function (text) {
-            allMenuItems = parseMenuText(text);
+        .then(function (jsonData) {
+            allMenuItems = jsonData;
+
             populateFilters(allMenuItems);
             renderMenu(allMenuItems);
 
@@ -35,38 +36,6 @@ function loadMenu() {
             document.getElementById("menu-grid").innerHTML =
                 '<div class="empty-state">' + error.message + "</div>";
         });
-}
-
-// parses text blocks into objects
-function parseMenuText(text) {
-    var items = [];
-    var blocks = text.split(/\n\s*\n/);
-
-    for (var i = 0; i < blocks.length; i++) {
-        var block = blocks[i].trim();
-        if (block === "") {
-            continue; 
-        }
-
-        var lines = block.split("\n");
-        var item = {};
-
-        for (var j = 0; j < lines.length; j++) {
-            var line = lines[j];
-            var colonIndex = line.indexOf(":");
-            if (colonIndex !== -1) {
-                var key = line.substring(0, colonIndex).trim();
-                var value = line.substring(colonIndex + 1).trim();
-                item[key] = value;
-            }
-        }
-
-        if (item["Title"]) {
-            items.push(item);
-        }
-    }
-
-    return items;
 }
 
 // fills dropdowns with unique categories
