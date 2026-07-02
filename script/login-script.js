@@ -1,4 +1,4 @@
-// login validation
+// validation thing
 window.addEventListener("load", function () {
     var loginForm = document.querySelector("form");
 
