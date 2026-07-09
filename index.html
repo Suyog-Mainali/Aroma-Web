@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header class="navbar">
         <a href="index.html" class="logo">AromaWeb</a>
@@ -39,7 +41,8 @@
     <main class="hero">
         <div class="hero-text">
             <h1>Freshly Cooked<br><span class="highlight">Lovingly Packed</span><br>Delivered Daily</h1>
-            <p>Experience the authentic taste of high class meals delivered right to your doorstep in kathmandu. Healthy, delicious, and made with love.</p>
+            <p>Experience the authentic taste of high class meals delivered right to your doorstep in kathmandu.
+                Healthy, delicious, and made with love.</p>
             <a href="pages/menu.html" class="btn btn-orange btn-large">Check out Weekly Menu</a>
         </div>
 
@@ -55,11 +58,124 @@
             <div class="slide"><img src="./assets/Images/dal_bhat.jpg" alt="img 2 clone"></div>
         </div>
     </main>
+    <section class="testimonials">
+        <div class="section-heading">
+            <h2>What Our <span class="highlight">Customers</span> Say</h2>
+            <p>Real experiences from real food lovers across Kathmandu.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"The dal bhat tastes exactly like home. Delivery is always on time and the packaging
+                    keeps everything warm."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">AS</div>
+                    <div>
+                        <h4>Anjali Sharma</h4>
+                        <span>Baneshwor, Kathmandu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="quote">"I ordered the momo party set for a small get-together and everyone loved it. Will
+                    definitely order again."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">BT</div>
+                    <div>
+                        <h4>Bikash Thapa</h4>
+                        <span>Lalitpur</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p class="quote">"Loved the Taste Quiz feature, it recommended dishes I never knew I'd enjoy. Great way
+                    to discover the menu."</p>
+                <div class="testimonial-author">
+                    <div class="avatar">PG</div>
+                    <div>
+                        <h4>Priya Gurung</h4>
+                        <span>Boudha, Kathmandu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="section-heading">
+            <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+            <p>Everything you need to know before you order.</p>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    What areas in Kathmandu do you deliver to?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We currently deliver across most areas of Kathmandu Valley, including Lalitpur and Bhaktapur. You
+                        can check exact coverage for your address on our Reservation page.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How fresh is the food when it arrives?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Every meal is cooked fresh after your order is placed and packed in insulated containers, so it
+                        stays warm and fresh until it reaches your door.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I customize my order for dietary needs?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! Many of our dishes can be adjusted for vegetarian, vegan, or spice-level preferences. Just
+                        leave a note during checkout or contact us directly.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are your delivery hours?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We deliver daily from 8:00 AM to 9:00 PM. Orders placed after 8:30 PM will be scheduled for the
+                        next day.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    How do I make a dine-in reservation?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Head over to our Reservation page, pick a branch, date, and time, and you'll get a confirmation
+                        right away.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    What payment methods do you accept?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We accept cash on delivery along with major digital wallets and card payments for online orders.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="script/auth-script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="assets/owl-carousel/owl.carousel.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $(".owl-carousel").owlCarousel({
                 items: 2,
                 loop: true,
@@ -75,4 +191,5 @@
         });
     </script>
 </body>
+
 </html>
