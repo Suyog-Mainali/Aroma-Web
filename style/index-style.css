@@ -95,7 +95,6 @@
     font-size: 1.05rem;
 }
 
-/* ===== Testimonials ===== */
 .testimonials {
     padding: 6rem 6%;
     background-color: var(--bg-dark);
@@ -168,7 +167,6 @@
     color: var(--text-muted);
 }
 
-/* ===== FAQ ===== */
 .faq {
     padding: 6rem 6% 8rem;
     background-color: var(--bg-darker);
