@@ -129,6 +129,9 @@
 }
  
 @media (max-width: 768px) {
+    .quiz-wrapper {
+        margin: 1rem;
+    }
     .quiz-card { padding: 1.8rem; }
     .quiz-question { font-size: 1.2rem; }
     .quiz-result-dish { font-size: 1.7rem; }

@@ -127,3 +127,19 @@
     padding: 3rem;
     color: var(--text-muted);
 }
+
+@media (max-width: 768px) {
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box input {
+        width: 100%;
+    }
+    .filter-dropdown {
+        width: 100%;
+    }
+    #btn-filter {
+        width: 100%;
+    }
+}

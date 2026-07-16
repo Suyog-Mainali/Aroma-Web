@@ -96,3 +96,13 @@
     font-size: 1rem;
     letter-spacing: 0.02em;
 }
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-grid .contact-form {
+        padding: 1.8rem;
+    }
+}

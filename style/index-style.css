@@ -234,6 +234,54 @@
     line-height: 1.7;
 }
 
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 5% 3rem 5%;
+        gap: 2rem;
+    }
+    .hero-text h1 {
+        font-size: 2.8rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    .owl-carousel {
+        margin-top: 20px;
+    }
+    .slide img {
+        height: 250px;
+    }
+    .testimonials {
+        padding: 4rem 5%;
+    }
+    .testimonial-card {
+        padding: 1.5rem;
+    }
+    .faq {
+        padding: 4rem 5% 5rem;
+    }
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 1rem 1.2rem;
+    }
+    .faq-answer {
+        padding: 0 1.2rem;
+    }
+    .faq-item.active .faq-answer {
+        padding: 0 1.2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .slide img {
+        height: 180px;
+    }
+}
+
 @media (max-width: 600px) {
     .section-heading h2 {
         font-size: 1.9rem;
