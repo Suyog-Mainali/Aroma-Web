@@ -1,4 +1,3 @@
-// check if user is logged in
 window.addEventListener("load", function () {
     var authContainer = document.getElementById("auth-buttons");
     var activeUserData = localStorage.getItem("aroma_active_user");
@@ -14,7 +13,6 @@ window.addEventListener("load", function () {
         }
     }
 
-    // Mobile Hamburger Menu Toggle
     var navbar = document.querySelector(".navbar");
     var nav = navbar ? navbar.querySelector("nav") : null;
     
@@ -34,8 +32,7 @@ window.addEventListener("load", function () {
                 toggle.innerText = "☰ Menu";
             }
         });
-        
-        // Close menu if a link is clicked
+
         var navLinks = nav.querySelectorAll("a");
         navLinks.forEach(function (link) {
             link.addEventListener("click", function () {
@@ -44,7 +41,6 @@ window.addEventListener("load", function () {
             });
         });
         
-        // Close menu when clicking outside
         document.addEventListener("click", function (event) {
             var isClickInside = nav.contains(event.target) || toggle.contains(event.target);
             if (!isClickInside && nav.classList.contains("show")) {
