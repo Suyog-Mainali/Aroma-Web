@@ -127,6 +127,16 @@
 .quiz-questions.hidden {
     display: none;
 }
+
+.btn-primary{
+    text-decoration: none;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    background-color: var(--primary-color);
+}
  
 @media (max-width: 768px) {
     .quiz-wrapper {
